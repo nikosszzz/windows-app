@@ -1,0 +1,24 @@
+{
+  "build": {
+    "appId": "com.nikos.testapp"
+  },
+  "name": "windows-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron . --trace-warnings",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^19.0.0",
+    "electron-builder": "^23.0.3"
+  },
+  "dependencies": {
+    "cli": "link:@electron-forge\\cli"
+  }
+}
