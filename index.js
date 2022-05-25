@@ -10,8 +10,7 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js')
         }
     })
-
-    window.loadFile('index.html');
+    window.loadFile('./menus/index.html');
 
     /**
      * Theme controls.

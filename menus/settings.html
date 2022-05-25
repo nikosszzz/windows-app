@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <link rel="stylesheet" type="text/css" href="./styles.css">
-    <title>Electron App Project</title>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
+    <title>Windows Utilities</title>
 </head>
 
 <body>
-    <h1>Main Page</h1>
-    This is gonna be a test of using Electron for a basic app.
+    <h1>Settings</h1>
+    Here you can control the settings of the app.
 
+    <br>
+    <a href="./index.html">Main Menu</a>
     <br><br>
 
-    Current theme source: <strong id="theme">System</strong>
+    Current theme: <strong id="theme">System</strong>
     <br><br>
 
     Light Mode 
@@ -47,8 +49,8 @@
     Electron: <span id="electron-version"></span><br>
 
     <!-- Scripts to be added here -->
-    <script src="./renderer.js"></script>
-    <script src="./preload.js"></script>
+    <script src="../renderer.js"></script>
+    <script src="../preload.js"></script>
 </body>
 
 </html>

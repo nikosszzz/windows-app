@@ -1,10 +1,19 @@
 {
   "build": {
-    "appId": "com.nikos.testapp"
+    "appId": "com.nikoszz.winutils",
+    "productName": "Windows Utilities",
+    "copyright": "Copyright © 2022 ${author}",
+    "nsis": {
+      "uninstallDisplayName": "Windows Utilities Uninstaller",
+      "artifactName": "${productName} Setup v${version}.${ext}",
+      "createStartMenuShortcut": "false",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    }
   },
-  "name": "windows-app",
+  "name": "windows-utilities",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple windows utility tool.",
   "main": "index.js",
   "scripts": {
     "start": "electron . --trace-warnings",
@@ -12,13 +21,11 @@
     "dist": "electron-builder"
   },
   "keywords": [],
-  "author": "",
+  "author": "nikoszz",
   "license": "ISC",
   "devDependencies": {
     "electron": "^19.0.0",
     "electron-builder": "^23.0.3"
   },
-  "dependencies": {
-    "cli": "link:@electron-forge\\cli"
-  }
+  "dependencies": {}
 }

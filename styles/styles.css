@@ -1,0 +1,29 @@
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #333;
+        color: white;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background: #ddd;
+        color: black;
+    }
+}
+
+@font-face {
+    font-family: 'sfmono_nerd_fontregular';
+    src: url('sf-mono-regular-nerdfont-webfont.woff2') format('woff2'),
+        url('sf-mono-regular-nerdfont-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h {
+    font-family: 'sfmono_nerd_fontregular';
+}
+
+body {
+    font-family: 'sfmono_nerd_fontregular';
+}
