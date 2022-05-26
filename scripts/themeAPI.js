@@ -2,7 +2,6 @@
  * Theme button controls.
  * 
  */
-
 const systemBox = document.getElementById('toggle-system');
 const lightBox = document.getElementById('toggle-light');
 const darkBox = document.getElementById('toggle-dark');
@@ -36,4 +35,3 @@ systemBox.addEventListener('click', async () => {
     systemBox.disabled = true;
     document.getElementById('theme').innerHTML = 'System';
 })
-

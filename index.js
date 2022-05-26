@@ -7,7 +7,7 @@ function createWindow() {
         width: 800,
         height: 600,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, '/scripts/preload.js')
         }
     })
     window.loadFile('./menus/index.html');
@@ -16,7 +16,6 @@ function createWindow() {
      * Theme controls.
      * 
      */
-
     ipcMain.handle('theme:setLight', () => {
         if (nativeTheme.shouldUseDarkColors || nativeTheme.themeSource === 'system') {
             nativeTheme.themeSource = 'light';
@@ -51,7 +50,6 @@ app.whenReady().then(() => {
     nativeTheme.themeSource = 'system';
     createWindow();
     console.log(`window has been initialized`);
-
 
     /**
      * macOS window handling.

@@ -10,47 +10,59 @@
 </head>
 
 <body>
-    <h1>Settings</h1>
-    Here you can control the settings of the app.
+    <div id="main">
+        <h1>Settings</h1>
+        Here you can control the settings of the app.
 
-    <br>
-    <a href="./index.html">Main Menu</a>
-    <br><br>
+        <br><br>
+    </div>
 
-    Current theme: <strong id="theme">System</strong>
-    <br><br>
+    <div id="theme-settings">
 
-    Light Mode 
-    <label class="switch">
-        <input type="checkbox" id="toggle-light">
-    </label>
-    <br>
-    Dark Mode
-    <label class="switch">
-        <input type="checkbox" id="toggle-dark">
-    </label>
-    <br>
-    System Theme
-    <label class="switch">
-        <input type="checkbox" id="toggle-system">
-    </label>
-    <br><br>
-    UNFINISHED<br><br>
-    App Info:
-    <br>
-    Version: <span id="app-ver"></span><br>
-    Developer: <span id="app-dev"></span><br>
+        Current theme: <strong id="theme">System</strong>
+        <br><br>
 
-    <br><br>
-    Dependecy Info:
-    <br>
-    Node.js: <span id="node-version"></span><br>
-    Chrome: <span id="chrome-version"></span><br>
-    Electron: <span id="electron-version"></span><br>
+        Light Mode
+        <label class="switch">
+            <input type="checkbox" id="toggle-light">
+        </label>
+        <br>
+        Dark Mode
+        <label class="switch">
+            <input type="checkbox" id="toggle-dark">
+        </label>
+        <br>
+        System Theme
+        <label class="switch">
+            <input type="checkbox" id="toggle-system">
+        </label>
+        <br><br>
+    </div>
+
+    <div id="app-info">
+        UNFINISHED<br><br>
+        App Info:
+        <br>
+        Version: <span id="app-ver"></span><br>
+        Developer: <span id="app-dev"></span><br>
+
+        <br><br>
+        Dependecy Info:
+        <br>
+        Node.js: <span id="node-version"></span><br>
+        Chrome: <span id="chrome-version"></span><br>
+        Electron: <span id="electron-version"></span><br>
+    </div>
+
+    <div id="toolbar">
+        <footer>
+            <a href="./index.html"><i class="material-icons">home</i></a>
+        </footer>
+    </div>
 
     <!-- Scripts to be added here -->
-    <script src="../renderer.js"></script>
-    <script src="../preload.js"></script>
+    <script src="../scripts/themeAPI.js"></script>
+    <script src="../scripts/preload.js"></script>
 </body>
 
 </html>

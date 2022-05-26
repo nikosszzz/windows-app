@@ -1,7 +1,30 @@
+/**
+* Imports
+*
+*/
+
 @media (prefers-color-scheme: dark) {
     body {
         background: #333;
         color: white;
+    }
+
+    a {
+        color: white;
+        text-decoration: none !important;
+    }
+    
+    a:hover {
+        color: white;
+        text-decoration: none !important;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+        outline-style: solid;
+        outline-color: black;
     }
 }
 
@@ -10,6 +33,35 @@
         background: #ddd;
         color: black;
     }
+
+    a {
+        color: black;
+        text-decoration: none !important;
+    }
+    
+    a:hover {
+        color: black;
+        text-decoration: none !important;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+        outline-style: solid;
+        outline-color: black;
+    }
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    src: url('MaterialIcons-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+    /* Text smoothing stuff. */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility
 }
 
 @font-face {
@@ -18,12 +70,35 @@
         url('sf-mono-regular-nerdfont-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+
+    /* Text smoothing stuff. */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility
 }
 
-h {
-    font-family: 'sfmono_nerd_fontregular';
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
 }
 
 body {
     font-family: 'sfmono_nerd_fontregular';
+}
+
+footer {
+    height: fixed; 
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0; 
 }
