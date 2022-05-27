@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; style-src 'self' http://* https://* 'unsafe-inline'; script-src 'self' http://* https://* 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/styles.css">
     <title>Windows Utilities</title>
 </head>
 
 <body>
-    <div id="main">
+    <div id="main" class="animate__animated animate__fadeIn">
         <h2>Main Menu</h2>
         Welcome to the Windows Utilities app! In this app,
         there will be shortcuts to download programs you might need after you install/reinstall your windows

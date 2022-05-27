@@ -4,20 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; style-src 'self' http://* https://* 'unsafe-inline'; script-src 'self' http://* https://* 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/styles.css">
     <title>Windows Utilities</title>
 </head>
 
 <body>
-    <div id="main">
+    <div id="main" class="animate__animated animate__fadeIn">
         <h1>Settings</h1>
         Here you can control the settings of the app.
 
         <br><br>
     </div>
 
-    <div id="theme-settings">
+    <div id="theme-settings" class="animate__animated animate__fadeIn">
 
         Current theme: <strong id="theme">Fetching.</strong>
         <br><br>
@@ -39,7 +40,7 @@
         <br><br>
     </div>
 
-    <div id="app-info">
+    <div id="app-info" class="animate__animated animate__fadeIn">
         UNFINISHED<br><br>
         App Info:
         <br>
@@ -47,11 +48,12 @@
         Developer: <span id="app-dev"></span><br>
 
         <br><br>
-        Dependecy Info:
-        <br>
-        Node.js: <span id="node-version"></span><br>
-        Chrome: <span id="chrome-version"></span><br>
-        Electron: <span id="electron-version"></span><br>
+        <details class="animate__animated animate__fadeIn">
+            <summary>Dependency Info:</summary>
+            Node.js: <span id="node-version"></span><br>
+            Chrome: <span id="chrome-version"></span><br>
+            Electron: <span id="electron-version"></span><br>
+        </details>
     </div>
 
     <div id="toolbar">
