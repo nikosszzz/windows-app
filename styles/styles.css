@@ -1,69 +1,63 @@
-/**
-* Themes
-*
-*/
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #333;
-        color: white;
-    }
+/* ROOT VARIABLES */
+:root {
+    /* Colors */
+    --color-primary: #458588;
+    --color-danger: #fb3934;
+    --color-success: #b8bb26;
+    --color-warning: #fabd2f;
+    --color-white: #ebdbb2;
 
-    a {
-        color: white;
-        text-decoration: none !important;
-    }
-    
-    a:hover {
-        color: white;
-        text-decoration: none !important;
-        cursor: pointer;
-    }
 
-    footer {
-        background-color: transparent;
-        backdrop-filter: blur(5px);
-        outline-style: solid;
-        outline-color: black;
-    }
+    /* Dark Theme */
+    --color-bg: #282828;
+    --color-bg1: #3c3836;
+    --color-bg2: #504945;
+    --color-fg: #ebdbb2;
+    --color-fg1: #d5c4a1;
+    --color-fg2: #bdae83;
+
+    /* Light Theme */
+    --color-light-bg: #fbf1c7;
+    --color-light-bg1: #ebdbb2;
+    --color-light-bg2: #d5c4a1;
+    --color-light-fg: #3c3836;
+    --color-light-fg1: #504945;
+    --color-light-fg2: #665c54;
+
+    /* Cards */
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
-@media (prefers-color-scheme: light) {
-    body {
-        background: #ddd;
-        color: black;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: 0;
+    list-style: 0;
+    box-sizing: border-box;
+}
 
-    a {
-        color: black;
-        text-decoration: none !important;
-    }
-    
-    a:hover {
-        color: black;
-        text-decoration: none !important;
-        cursor: pointer;
-    }
-
-    footer {
-        background-color: transparent;
-        backdrop-filter: blur(5px);
-        outline-style: solid;
-        outline-color: black;
-    }
+html {
+    font-size: 14px;
 }
 
 body {
-    font-family: 'sfmono_nerd_fontregular';
-    padding-bottom: 30px;
-}
-
-footer {
-    height: 30px; 
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    clear: both; 
+    width: 100vw;
+    height: 100vh;
+    font-size: 0.88rem;
+    background: var(--color-bg);
+    user-select: none;
+    overflow-x: hidden;
 }
 
 /*
