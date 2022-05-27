@@ -1,8 +1,7 @@
 /**
-* Imports
+* Themes
 *
 */
-
 @media (prefers-color-scheme: dark) {
     body {
         background: #333;
@@ -53,6 +52,25 @@
     }
 }
 
+body {
+    font-family: 'sfmono_nerd_fontregular';
+    padding-bottom: 30px;
+}
+
+footer {
+    height: 30px; 
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    clear: both; 
+}
+
+/*
+* Font styles & Icons
+*
+*/
+
 @font-face {
     font-family: 'Material Icons';
     src: url('MaterialIcons-Regular.ttf') format('truetype');
@@ -89,16 +107,4 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-}
-
-body {
-    font-family: 'sfmono_nerd_fontregular';
-}
-
-footer {
-    height: fixed; 
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0; 
 }

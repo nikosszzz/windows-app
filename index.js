@@ -18,8 +18,6 @@ const userStore = new Store({
     }
 });
 
-global.userStore = userStore;
-
 /**
  * Create & initialize window
  * 
@@ -41,6 +39,7 @@ app.on('ready', function () {
             preload: path.join(__dirname, '/scripts/preload.js')
         }
     })
+    global.userStore = userStore;
     global.window = window;
     console.log(`window has been initialized`);
     window.loadFile('./menus/index.html');
