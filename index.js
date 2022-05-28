@@ -2,7 +2,6 @@ const
     { app, BrowserWindow, ipcMain, nativeTheme } = require('electron'),
     path = require('path'),
     Store = require('electron-store');
-const { isError } = require('util');
 
 require('v8-compile-cache');
 
