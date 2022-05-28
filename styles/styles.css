@@ -22,7 +22,7 @@
 
         /* Other */
         font-size: 16px;
-        font-family: 'SF-Mono'
+        font-family: 'Google Sans Text'
     }
 }
 
@@ -48,7 +48,7 @@
 
         /* Other */
         font-size: 16px;
-        font-family: 'SF-Mono'
+        font-family: 'Google Sans Text'
     }
 }
 
@@ -143,9 +143,8 @@ div.card {
 }
 
 @font-face {
-    font-family: 'SF-Mono';
-    src: url('sf-mono-regular-nerdfont-webfont.woff2') format('woff2'),
-        url('sf-mono-regular-nerdfont-webfont.woff') format('woff');
+    font-family: 'Google Sans Text';
+    src: url('google-sans-text.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
