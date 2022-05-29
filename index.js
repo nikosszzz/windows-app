@@ -35,7 +35,7 @@ app.on('ready', function () {
         width: width,
         height: height,
         webPreferences: {
-            preload: path.join(__dirname, '/scripts/preload.js')
+            preload: path.join(__dirname, '/scripts/appAPI.js')
         }
     })
     exports.userStore = userStore;
@@ -69,8 +69,8 @@ app.on('ready', function () {
      * Theme controls.
      * 
      */
-    ipcMain.on('requestTheme', (event, data) => {
-        event.reply('requestedTheme', userStore.get('themeSet'));
+    ipcMain.on('updateTheme', (event, data) => {
+        event.reply('themeStatus', userStore.get('themeSet'));
     })
 
     ipcMain.handle('theme:setLight', () => {

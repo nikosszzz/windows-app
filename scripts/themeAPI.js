@@ -9,32 +9,17 @@ const themeValue = document.querySelector('#theme');
 
 lightBox.addEventListener('click', async () => {
     await window.themeControl.setLight();
-    darkBox.disabled = false;
-    darkBox.checked = false;
-    systemBox.disabled = false;
-    systemBox.checked = false;
-    lightBox.disabled = true;
-    themeValue.innerHTML = 'Light';
+    updateTheme();
 })
 
 darkBox.addEventListener('click', async () => {
     await window.themeControl.setDark();
-    systemBox.disabled = false;
-    systemBox.checked = false;
-    lightBox.disabled = false;
-    lightBox.checked = false;
-    darkBox.disabled = true;
-    themeValue.innerHTML = 'Dark';
+    updateTheme();
 })
 
 systemBox.addEventListener('click', async () => {
     await window.themeControl.setSystem();
-    darkBox.disabled = false;
-    darkBox.checked = false;
-    lightBox.disabled = false;
-    lightBox.checked = false;
-    systemBox.disabled = true;
-    themeValue.innerHTML = 'System';
+    updateTheme();
 })
 
 /**
@@ -42,11 +27,13 @@ systemBox.addEventListener('click', async () => {
  * 
  * 
  */
-window.api.send("requestTheme", "some data");
+function updateTheme() {
+    window.api.theme.update("updateTheme", "themeData");
+}
 
-window.api.receive("requestedTheme", (data) => {
+window.api.theme.status("themeStatus", (themeData) => {
 
-    if (data === 'light') {
+    if (themeData === 'light') {
         var userTheme = 'Light';
         darkBox.disabled = false;
         darkBox.checked = false;
@@ -54,7 +41,7 @@ window.api.receive("requestedTheme", (data) => {
         systemBox.checked = false;
         lightBox.disabled = true;
         lightBox.checked = true;
-    } else if (data === 'dark') {
+    } else if (themeData === 'dark') {
         var userTheme = 'Dark';
         systemBox.disabled = false;
         systemBox.checked = false;
@@ -62,7 +49,7 @@ window.api.receive("requestedTheme", (data) => {
         lightBox.checked = false;
         darkBox.disabled = true;
         darkBox.checked = true;
-    } else if (data === 'system') {
+    } else if (themeData === 'system') {
         var userTheme = 'System';
         darkBox.disabled = false;
         darkBox.checked = false;
