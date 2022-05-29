@@ -38,8 +38,7 @@ app.on('ready', function () {
             preload: path.join(__dirname, '/scripts/preload.js')
         }
     })
-    global.userStore = userStore;
-    global.window = window;
+    exports.userStore = userStore;
     console.log(`window has been initialized`);
     window.loadFile('./menus/index.html');
 
@@ -94,21 +93,4 @@ app.on('ready', function () {
         nativeTheme.themeSource = 'system';
         userStore.set('themeSet', nativeTheme.themeSource);
     })
-})
-
-/**
- *  All OSes quit the applications once windows are closed,
- *  except macOS so implement the following function.
- * 
- */
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
-})
-
-/**
- * macOS window handling.
- * 
- */
-app.on('activate', () => {
-    if (window.getAllWindows().length === 0) createWindow()
 })
