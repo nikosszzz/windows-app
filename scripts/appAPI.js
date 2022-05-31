@@ -14,13 +14,13 @@ contextBridge.exposeInMainWorld("api", {
     },
     theme: {
         update: (channel, data) => {
-            let validChannels = ["changeRequest"];
+            let validChannels = ["updateTheme"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }
         },
-        status:(channel, func) => {
-            let validChannels = ["themeChanged"];
+        status: (channel, func) => {
+            let validChannels = ["themeStatus"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
