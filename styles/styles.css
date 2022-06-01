@@ -42,7 +42,7 @@
     }
 }
 
-body {
+body, html {
     background: var(--color-bg);
     color: var(--color-fg);
     margin: 0;
@@ -54,7 +54,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
     height: 100%;
     padding: 1rem;
 }
@@ -109,12 +109,12 @@ main {
     filter: grayscale(0%) opacity(1);
 }
 
-#logo .link-text{
+.sidebar-logo .link-text{
     margin: auto;
     font-size: 2rem;
 }
 
-#logo {
+.sidebar-logo {
     margin: 1rem;
 }
 
@@ -138,6 +138,8 @@ main {
 
 div.card {
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     background: var(--color-bg1);
     padding: 1rem;
@@ -147,7 +149,7 @@ div.card {
     width: 75%;
 }
 
-.card svg{
+.card .card-logo{
     width: 2rem;
     fill: var(--color-fg);
 }
@@ -168,7 +170,12 @@ div.card {
     color: var(--color-fg1);
 }
 
-.card select{
+/* 
+*   Card Types
+*/
+
+/* Dropdowns */
+.card .card-dropdown{
     margin-left: auto;
     font-size: 1rem;
     padding: 0rem 1rem;
@@ -177,6 +184,37 @@ div.card {
     border: none;
     border-radius: 0.8rem;
     max-height: 3rem;
+}
+
+/* Toggle Switch */
+.card .card-toggle {
+    margin-left: auto;
+    --inactive-bg: var(--color-bg2);
+    --active-bg: var(--color-fg2);
+    --size: 2rem;
+    appearance: none;
+    width: calc(var(--size) * 2.2);
+    height: var(--size);
+    border-radius: calc(var(--size) / 2);
+    cursor: pointer;
+    background-color: var(--inactive-bg);
+    background-image: radial-gradient(
+        circle calc(var(--size) / 2.625),
+        var(--color-bg4) 100%,
+        #0000 0
+    );
+    background-position: calc(var(--size) / -1.75) 0;
+    transition: background 0.2s ease-out;
+}
+
+.card .card-toggle:checked {
+    background-color: var(--active-bg);
+    background-position: calc(var(--size) / 1.75) 0;
+    background-image: radial-gradient(
+        circle calc(var(--size) / 2.625),
+        var(--color-fg) 100%,
+        #0000 0
+    );
 }
 
 
