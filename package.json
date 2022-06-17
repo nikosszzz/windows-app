@@ -24,12 +24,12 @@
   "author": "nikoszz",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^19.0.0",
+    "electron": "^19.0.4",
     "electron-builder": "^23.0.3"
   },
   "dependencies": {
-    "electron-store": "^8.0.1",
-    "material-icons": "^1.11.0",
+    "electron-store": "^8.0.2",
+    "material-icons": "^1.11.2",
     "v8-compile-cache": "^2.3.0"
   }
 }

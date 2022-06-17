@@ -8,10 +8,10 @@
     --color-white: #ebdbb2;
     --color-dark: #928374;
 
-    
+
     /* Other */
     font-size: 16px;
-    font-family: 'Google Sans Text'
+    font-family: 'Google Sans Text';
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,7 +42,8 @@
     }
 }
 
-body, html {
+body,
+html {
     background: var(--color-bg);
     color: var(--color-fg);
     margin: 0;
@@ -109,7 +110,7 @@ main {
     filter: grayscale(0%) opacity(1);
 }
 
-.sidebar-logo .link-text{
+.sidebar-logo .link-text {
     margin: auto;
     font-size: 2rem;
 }
@@ -123,7 +124,7 @@ main {
     margin-left: 1rem;
 }
 
-.sidebar-link svg{
+.sidebar-link svg {
     width: 2rem;
 }
 
@@ -149,7 +150,7 @@ div.card {
     width: 75%;
 }
 
-.card .card-logo{
+.card .card-logo {
     width: 2rem;
     fill: var(--color-fg);
 }
@@ -175,7 +176,7 @@ div.card {
 */
 
 /* Dropdowns */
-.card .card-dropdown{
+.card .card-dropdown {
     margin-left: auto;
     font-size: 1rem;
     padding: 0rem 1rem;
@@ -198,25 +199,21 @@ div.card {
     border-radius: calc(var(--size) / 2);
     cursor: pointer;
     background-color: var(--inactive-bg);
-    background-image: radial-gradient(
-        circle calc(var(--size) / 2.625),
-        var(--color-bg4) 100%,
-        #0000 0
-    );
+    background-image: radial-gradient(circle calc(var(--size) / 2.625),
+            var(--color-bg4) 100%,
+            #0000 0);
     background-position: calc(var(--size) / -1.75) 0;
     transition: background 0.2s ease-out;
-    text-rendering: optimizeLegibility
+    text-rendering: optimizeLegibility;
 }
 
 .card .card-toggle:checked {
     background-color: var(--active-bg);
     background-position: calc(var(--size) / 1.75) 0;
-    background-image: radial-gradient(
-        circle calc(var(--size) / 2.625),
-        var(--color-fg) 100%,
-        #0000 0
-    );
-    text-rendering: optimizeLegibility
+    background-image: radial-gradient(circle calc(var(--size) / 2.625),
+            var(--color-fg) 100%,
+            #0000 0);
+    text-rendering: optimizeLegibility;
 }
 
 
