@@ -205,6 +205,7 @@ div.card {
     );
     background-position: calc(var(--size) / -1.75) 0;
     transition: background 0.2s ease-out;
+    text-rendering: optimizeLegibility
 }
 
 .card .card-toggle:checked {
@@ -215,6 +216,7 @@ div.card {
         var(--color-fg) 100%,
         #0000 0
     );
+    text-rendering: optimizeLegibility
 }
 
 
@@ -226,5 +228,5 @@ div.card {
 
     /* Text smoothing stuff. */
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility
+    text-rendering: optimizeLegibility;
 }
