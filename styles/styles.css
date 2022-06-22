@@ -2,9 +2,9 @@
 :root {
     /* Colors */
     --color-primary: #458588;
-    --color-danger: #fb3934;
-    --color-success: #b8bb26;
-    --color-warning: #fabd2f;
+    --color-danger: #BF616A;
+    --color-success: #A3BE8C;
+    --color-warning: #EBCB8B;
     --color-white: #ebdbb2;
     --color-dark: #928374;
 
@@ -17,14 +17,14 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* Dark Theme */
-        --color-bg: #282828;
-        --color-bg1: #3c3836;
-        --color-bg2: #504945;
-        --color-bg3: #665c54;
-        --color-bg4: #7c6f64;
-        --color-fg: #ebdbb2;
-        --color-fg1: #d5c4a1;
-        --color-fg2: #bdae93;
+        --color-bg: #2E3440;
+        --color-bg1: #3B4252;
+        --color-bg2: #434C5E;
+        --color-bg3: #4C566A;
+        --color-bg4: #677590;
+        --color-fg: #ECEFF4;
+        --color-fg1: #E5E9F0;
+        --color-fg2: #D8DEE9;
     }
 }
 
@@ -151,7 +151,7 @@ div.card {
 }
 
 .card .card-logo {
-    width: 2rem;
+    width: 1.8rem;
     fill: var(--color-fg);
 }
 
@@ -163,11 +163,11 @@ div.card {
 }
 
 .card-desc .card-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .card-desc .card-subtitle {
-    font-size: .8rem;
+    font-size: .6rem;
     color: var(--color-fg1);
 }
 
@@ -192,7 +192,7 @@ div.card {
     margin-left: auto;
     --inactive-bg: var(--color-bg2);
     --active-bg: var(--color-fg2);
-    --size: 2rem;
+    --size: 1.6rem;
     appearance: none;
     width: calc(var(--size) * 2.2);
     height: var(--size);
@@ -216,6 +216,26 @@ div.card {
     text-rendering: optimizeLegibility;
 }
 
+/* Button */
+
+.card .card-button {
+    margin-left: auto;
+    width: auto;
+    height: 2rem;
+    padding: 0 1rem;
+    background: var(--color-bg2);
+    color: var(--color-fg);
+    border: none;
+    border-radius: 0.8rem;
+}
+
+.card .card-button:hover {
+    background: var(--color-bg3);
+}
+
+.card .card-button:active {
+    background: var(--color-bg4);
+}
 
 @font-face {
     font-family: 'Google Sans Text';
