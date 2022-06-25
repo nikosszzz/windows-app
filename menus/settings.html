@@ -13,6 +13,7 @@
     <nav class="sidebar">
         <ul class="sidebar-list">
             <li id="logo" class="sidebar-logo">
+                <span id="link-text" class="badge">Beta</span>
                 <span class="link-text">Windows Utilities</span>
             </li>
 
@@ -60,9 +61,9 @@
 
     <main>
         <div id="theme-card" class="card">
-            <svg class="card-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <svg class="card-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
-                    d="M224 0H336C362.5 0 384 21.49 384 48V256H0V48C0 21.49 21.49 0 48 0H64L96 64L128 0H160L192 64L224 0zM384 288V320C384 355.3 355.3 384 320 384H256V448C256 483.3 227.3 512 192 512C156.7 512 128 483.3 128 448V384H64C28.65 384 0 355.3 0 320V288H384zM192 464C200.8 464 208 456.8 208 448C208 439.2 200.8 432 192 432C183.2 432 176 439.2 176 448C176 456.8 183.2 464 192 464z" />
+                d="M512 255.1C512 256.9 511.1 257.8 511.1 258.7C511.6 295.2 478.4 319.1 441.9 319.1H344C317.5 319.1 296 341.5 296 368C296 371.4 296.4 374.7 297 377.9C299.2 388.1 303.5 397.1 307.9 407.8C313.9 421.6 320 435.3 320 449.8C320 481.7 298.4 510.5 266.6 511.8C263.1 511.9 259.5 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256V255.1zM96 255.1C78.33 255.1 64 270.3 64 287.1C64 305.7 78.33 319.1 96 319.1C113.7 319.1 128 305.7 128 287.1C128 270.3 113.7 255.1 96 255.1zM128 191.1C145.7 191.1 160 177.7 160 159.1C160 142.3 145.7 127.1 128 127.1C110.3 127.1 96 142.3 96 159.1C96 177.7 110.3 191.1 128 191.1zM256 63.1C238.3 63.1 224 78.33 224 95.1C224 113.7 238.3 127.1 256 127.1C273.7 127.1 288 113.7 288 95.1C288 78.33 273.7 63.1 256 63.1zM384 191.1C401.7 191.1 416 177.7 416 159.1C416 142.3 401.7 127.1 384 127.1C366.3 127.1 352 142.3 352 159.1C352 177.7 366.3 191.1 384 191.1z" />
             </svg>
 
             <div class="card-desc">
@@ -105,9 +106,28 @@
 
             <button class="card-button" id="button"> Button </button>
         </div>
+
+        <div id="button" class="card">
+            <svg class="card-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <path
+                d="M144 480C64.47 480 0 415.5 0 336C0 273.2 40.17 219.8 96.2 200.1C96.07 197.4 96 194.7 96 192C96 103.6 167.6 32 256 32C315.3 32 367 64.25 394.7 112.2C409.9 101.1 428.3 96 448 96C501 96 544 138.1 544 192C544 204.2 541.7 215.8 537.6 226.6C596 238.4 640 290.1 640 352C640 422.7 582.7 480 512 480H144zM303 392.1C312.4 402.3 327.6 402.3 336.1 392.1L416.1 312.1C426.3 303.6 426.3 288.4 416.1 279C407.6 269.7 392.4 269.7 383 279L344 318.1V184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184V318.1L256.1 279C247.6 269.7 232.4 269.7 223 279C213.7 288.4 213.7 303.6 223 312.1L303 392.1z" />
+            </svg>
+
+            <div class="card-desc">
+                <span class="card-title"> Update </span>
+                <span class="card-subtitle"> Check for any new updates to the app! </span>
+            </div>
+
+            <button class="card-button" id="button"> Check </button>
+        </div>
+
+        <div class="card">
+            <span id="card-title" class="badge">Beta</span>
+            <span class="card-subtitle">&nbsp; The app is unstable and might have bugs and/or crashes!</span>
+        </div>
     </main>
 </body>
 
-<script src="../scripts//themeAPI.js"></script>
+<script src="../scripts/themeAPI.js"></script>
 
 </html>

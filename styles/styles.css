@@ -155,6 +155,20 @@ div.card {
     fill: var(--color-fg);
 }
 
+.badge{
+    background-color: hsl(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%); 
+    border-radius: 2.5rem; 
+    margin-left: 4px;
+    font-size: 15px;
+    padding: 0 6px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .card-desc {
     display: flex;
     flex-direction: column;
@@ -167,7 +181,7 @@ div.card {
 }
 
 .card-desc .card-subtitle {
-    font-size: .6rem;
+    font-size: 0.8rem;
     color: var(--color-fg1);
 }
 
