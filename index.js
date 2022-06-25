@@ -32,6 +32,7 @@ app.on('ready', function () {
     nativeTheme.themeSource = storeTheme;
 
     window = new BrowserWindow({
+        autoHideMenuBar: true,
         width: width,
         height: height,
         webPreferences: {
