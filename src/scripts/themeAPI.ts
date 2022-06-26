@@ -2,9 +2,12 @@
  * Theme button controls.
  * 
  */
-const themeValue = document.querySelector('#theme');
+const themeValue = document.querySelector('#theme') as HTMLInputElement;
+
+console.log(`a`)
 
 themeValue.addEventListener('change', async () => {
+    console.log(`test`)
     if (themeValue.value === 'light') {
         await window.themeControl.setLight();
         updateTheme();
@@ -25,6 +28,8 @@ function updateTheme() {
 }
 
 window.api.theme.update("updateTheme", "themeData");
-window.api.theme.status("themeStatus", (themeData) => {
+window.api.theme.status("themeStatus", (themeData: string) => {
     themeValue.value = themeData;
 })
+
+export {};

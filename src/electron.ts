@@ -1,7 +1,6 @@
-const
-    { app, BrowserWindow, ipcMain, nativeTheme } = require('electron'),
-    path = require('path'),
-    Store = require('electron-store');
+const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
+const path = require('path');
+const Store = require('electron-store');
 
 require('v8-compile-cache');
 
@@ -10,6 +9,7 @@ require('v8-compile-cache');
  * 
  */
 const userStore = new Store({
+    //@ts-ignore
     configName: 'userStore',
     defaults: {
         themeSet: 'system',
@@ -29,19 +29,26 @@ app.on('ready', function () {
     let storeTheme = userStore.get('themeSet');
     let { width, height } = userStore.get('windowBounds')
 
+    //@ts-ignore
     nativeTheme.themeSource = storeTheme;
 
-    window = new BrowserWindow({
+    let window = new BrowserWindow({
         autoHideMenuBar: true,
         width: width,
         height: height,
+        show: false,
         webPreferences: {
-            preload: path.join(__dirname, '/scripts/appAPI.js')
+            preload: path.join(__dirname, '/scripts/appAPI.ts'),
+            nodeIntegration: true
         }
     })
     exports.userStore = userStore;
     console.log(`window has been initialized`);
-    window.loadFile('./menus/index.html');
+
+    const startURL = 'http://localhost:3000';
+
+    window.loadURL(startURL);
+    window.once('ready-to-show', () => window.show());
 
     /**
      * Open Chrome DevTools on window initialization.
@@ -54,7 +61,7 @@ app.on('ready', function () {
      * 
      */
     window.on("closed", () => {
-        window = null;
+        let window = null;
     })
 
     /**
