@@ -11,11 +11,12 @@
       "requestedExecutionLevel": "requireAdministrator"
     },
     "nsis": {
+      "oneClick": false,
       "uninstallDisplayName": "Windows Utilities Uninstaller",
       "artifactName": "${productName} Setup v${version}.${ext}",
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "createStartMenuShortcut": "false",
+      "createStartMenuShortcut": false,
       "installerIcon": "public/favicon.ico",
       "uninstallerIcon": "public/favicon.ico"
     }
