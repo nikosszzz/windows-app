@@ -14,7 +14,7 @@
   "name": "windows-utilities",
   "version": "1.0.0",
   "description": "Simple windows utility tool.",
-  "main": "src/electron.ts",
+  "main": "src/electron.js",
   "homepage": "./",
   "scripts": {
     "dev": "concurrently \"pnpm start\" \"wait-on http://localhost:3000 && electron .\"",

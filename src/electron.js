@@ -38,8 +38,8 @@ app.on('ready', function () {
         height: height,
         show: false,
         webPreferences: {
-            preload: path.join(__dirname, '/scripts/appAPI.ts'),
-            nodeIntegration: true
+            nodeIntegration: true,
+            preload: path.join(__dirname, '/scripts/appAPI.js')
         }
     })
     exports.userStore = userStore;

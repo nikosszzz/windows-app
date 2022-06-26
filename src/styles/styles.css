@@ -166,9 +166,9 @@ div.card {
     fill: var(--color-fg);
 }
 
-.badge{
-    background-color: hsl(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%); 
-    border-radius: 2.5rem; 
+.badge {
+    background-color: hsl(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%);
+    border-radius: 2.5rem;
     margin-left: 4px;
     font-size: 15px;
     padding: 0 6px;

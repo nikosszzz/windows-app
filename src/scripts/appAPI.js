@@ -1,25 +1,25 @@
-import { contextBridge, ipcRenderer } from 'electron';
+const { contextBridge, ipcRenderer } = require('electron');
 
 /**
  * Requests API
  * 
  */
 contextBridge.exposeInMainWorld("api", {
-    send: (channel: string, data: string) => {
+    send: (channel, data) => {
         ipcRenderer.send(channel, data);
     },
-    receive: (channel: string, func: any) => {
+    receive: (channel, func) => {
         // Deliberately strip event as it includes `sender` 
         ipcRenderer.on(channel, (event, ...args) => func(...args));
     },
     theme: {
-        update: (channel: string, data: string) => {
+        update: (channel, data) => {
             let validChannels = ["updateTheme"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }
         },
-        status: (channel: string, func: any) => {
+        status: (channel, func) => {
             let validChannels = ["themeStatus"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
@@ -39,8 +39,8 @@ contextBridge.exposeInMainWorld('themeControl', {
 })
 
 window.addEventListener('DOMContentLoaded', () => {
-    async function replaceText(selector: any, text: string) {
-        const element = document.querySelector(`#${selector}`) as HTMLElement;
+    const replaceText = (selector, text) => {
+        const element = document.querySelector(`#${selector}`);
         if (element) element.innerText = text;
     }
 })
