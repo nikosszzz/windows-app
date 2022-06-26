@@ -110,9 +110,20 @@ main {
     filter: grayscale(0%) opacity(1);
 }
 
-.sidebar-logo .link-text {
+.sidebar-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+.sidebar-logo .logo-text {
     margin: auto;
     font-size: 2rem;
+}
+
+.sidebar-logo #logo-badge {
+    margin: 0;
+    align-self: flex-start
 }
 
 .sidebar-logo {
