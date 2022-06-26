@@ -3,9 +3,18 @@
     "appId": "com.nikoszz.winutils",
     "productName": "Windows Utilities",
     "copyright": "Copyright © 2022 ${author}",
+    "extends": null,
+    "asar": true,
+    "win": {
+      "target": [ "nsis"],
+      "icon": "public/favicon.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
     "nsis": {
       "uninstallDisplayName": "Windows Utilities Uninstaller",
       "artifactName": "${productName} Setup v${version}.${ext}",
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
       "createStartMenuShortcut": "false",
       "installerIcon": "public/favicon.ico",
       "uninstallerIcon": "public/favicon.ico"
@@ -14,13 +23,14 @@
   "name": "windows-utilities",
   "version": "1.0.0",
   "description": "Simple windows utility tool.",
-  "main": "src/electron.js",
+  "main": "public/main.js",
   "homepage": "./",
   "scripts": {
     "dev": "concurrently \"pnpm start\" \"wait-on http://localhost:3000 && electron .\"",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "ebuild": "electron-builder build --publish never"
+    "build": "PUBLIC_URL=/ react-scripts build",
+    "build-electron": "react-scripts build",
+    "electron:build": "pnpm build-electron && electron-builder build --publish never"
   },
   "keywords": [],
   "author": "nikoszz",
@@ -52,14 +62,13 @@
   },
   "browserslist": {
     "production": [
+      "last 1 electron version",
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 electron version"
     ]
   }
 }

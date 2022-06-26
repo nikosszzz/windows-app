@@ -9,7 +9,6 @@ require('v8-compile-cache');
  * 
  */
 const userStore = new Store({
-    //@ts-ignore
     configName: 'userStore',
     defaults: {
         themeSet: 'system',
@@ -23,23 +22,23 @@ const userStore = new Store({
  */
 
 app.on('ready', function () {
+    let window;
     /**
      * Fetch userStore
      */
     let storeTheme = userStore.get('themeSet');
     let { width, height } = userStore.get('windowBounds')
 
-    //@ts-ignore
     nativeTheme.themeSource = storeTheme;
 
-    let window = new BrowserWindow({
+    window = new BrowserWindow({
         autoHideMenuBar: true,
         width: width,
         height: height,
         show: false,
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, '/scripts/appAPI.js')
+            preload: path.join(__dirname, './appAPI.js')
         }
     })
     exports.userStore = userStore;
@@ -61,7 +60,7 @@ app.on('ready', function () {
      * 
      */
     window.on("closed", () => {
-        let window = null;
+        window = null;
     })
 
     /**
