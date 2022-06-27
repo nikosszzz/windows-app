@@ -1,8 +1,10 @@
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
 const path = require('path');
 const Store = require('electron-store');
+const isDev = require('electron-is-dev');
 
 require('v8-compile-cache');
+require('@electron/remote/main').initialize();
 
 /**
  * Initialize userStore
@@ -38,15 +40,18 @@ app.on('ready', function () {
         show: false,
         webPreferences: {
             nodeIntegration: true,
+            enableRemoteModule: true,
             preload: path.join(__dirname, './appAPI.js')
         }
     })
     exports.userStore = userStore;
     console.log(`window has been initialized`);
 
-    const startURL = 'http://localhost:3000';
-
-    window.loadURL(startURL);
+    window.loadURL(
+        isDev 
+        ? 'http://localhost:3000'
+        : `file://${path.join(__dirname, `../build/index.html`)}`
+        );
     window.once('ready-to-show', () => window.show());
 
     /**

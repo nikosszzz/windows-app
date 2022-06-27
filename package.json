@@ -4,9 +4,17 @@
     "productName": "Windows Utilities",
     "copyright": "Copyright © 2022 ${author}",
     "extends": null,
-    "asar": true,
+    "files": [
+      "dist/**/*",
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
     "win": {
-      "target": [ "nsis"],
+      "target": "nsis",
       "icon": "public/favicon.ico",
       "requestedExecutionLevel": "requireAdministrator"
     },
@@ -24,14 +32,14 @@
   "name": "windows-utilities",
   "version": "1.0.0",
   "description": "Simple windows utility tool.",
-  "main": "public/main.js",
+  "main": "./public/main.js",
   "homepage": "./",
   "scripts": {
-    "dev": "concurrently \"pnpm start\" \"wait-on http://localhost:3000 && electron .\"",
     "start": "react-scripts start",
-    "build": "PUBLIC_URL=/ react-scripts build",
-    "build-electron": "react-scripts build",
-    "electron:build": "pnpm build-electron && electron-builder build --publish never"
+    "build": "react-scripts build",
+    "electron:serve": "concurrently -k \"pnpm start\" \"wait-on http://localhost:3000\"",
+    "electron:start": "wait-on tcp:3000 && electron .",
+    "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=build/main.js"
   },
   "keywords": [],
   "author": "nikoszz",
@@ -50,6 +58,7 @@
     "wait-on": "^6.0.1"
   },
   "dependencies": {
+    "@electron/remote": "^2.0.8",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.41",
     "electron-is-dev": "^2.0.0",
@@ -60,15 +69,11 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.7.4",
-    "v8-compile-cache": "^2.3.0",
-    "web-vitals": "^2.1.4"
+    "v8-compile-cache": "^2.3.0"
   },
   "browserslist": {
     "production": [
-      "last 1 electron version",
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "last 1 electron version"
     ],
     "development": [
       "last 1 electron version"

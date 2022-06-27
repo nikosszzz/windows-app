@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-export class Settings extends React.Component {
+export default class Settings extends React.Component {
     componentDidMount() {
         import('../scripts/themeAPI');
-
     }
     render() {
         return (

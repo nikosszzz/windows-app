@@ -1,8 +1,8 @@
 declare global {
-  interface Window {
-    api: any;
-    themeControl: any;
+    interface Window {
+      api: any;
+      themeControl: any;
+    }
   }
-}
 
 export {};
