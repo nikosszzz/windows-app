@@ -1,6 +1,6 @@
 name: App publish/release
 
-on: push
+on: workflow_dispatch
 
 jobs:
   release_windows:
