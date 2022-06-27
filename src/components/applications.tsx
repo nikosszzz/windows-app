@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default class Applications extends React.Component {
-    render() {
+    render(): JSX.Element {
         return (
             <div className="page">
                 <nav className="sidebar">

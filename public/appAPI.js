@@ -25,6 +25,20 @@ contextBridge.exposeInMainWorld("api", {
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
         }
+    },  
+    settings: {
+        requestData: (channel, data) => {
+            let validChannels = ["userStoreReq"];
+            if (validChannels.includes(channel)) {
+                ipcRenderer.send(channel, data);
+            }
+        },
+        fetch: (channel, func) => {
+            let validChannels = ["userData"];
+            if (validChannels.includes(channel)) {
+                ipcRenderer.on(channel, (event, ...args) => func(...args))
+            }
+        }
     }
 })
 

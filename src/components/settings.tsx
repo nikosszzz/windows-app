@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
-import { themeAPI } from '../scripts/themeAPI';
+import { themeAPI } from '../API/themeAPI';
+import { settingsAPI } from '../API/settingsAPI';
+import { Link } from 'react-router-dom';
 
 export default class Settings extends React.Component {
     componentDidMount(): void {
+        settingsAPI();
         themeAPI();
-    }
-    render() {
+    }   
+    render(): JSX.Element {
         return (
             <div className="page">
                 <nav className="sidebar">

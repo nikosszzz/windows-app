@@ -45,7 +45,6 @@ app.on('ready', function () {
             preload: path.join(__dirname, './appAPI.js')
         }
     })
-    exports.userStore = userStore;
     console.log(`window has been initialized`);
 
     window.loadURL(
@@ -109,5 +108,14 @@ app.on('ready', function () {
     ipcMain.handle('theme:setSystem', () => {
         nativeTheme.themeSource = 'system';
         userStore.set('themeSet', nativeTheme.themeSource);
+    })
+
+    /**
+     * Settings API reqs.
+     * 
+     */
+     ipcMain.on('userStoreReq', (event) => {
+        const windowBounds = width + `x` + height
+        event.reply('userData', userStore.get('themeSet'), windowBounds);
     })
 })
