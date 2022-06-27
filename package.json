@@ -35,8 +35,8 @@
   "main": "./public/main.js",
   "homepage": "./",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
     "electron:serve": "concurrently -k \"pnpm start\" \"wait-on http://localhost:3000\"",
     "electron:start": "wait-on tcp:3000 && electron .",
     "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=build/main.js",
@@ -46,11 +46,13 @@
   "author": "nikoszz",
   "license": "ISC",
   "devDependencies": {
+    "@craco/craco": "6.4.3",
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@types/react-router-dom": "^5.3.3",
     "concurrently": "^7.2.2",
+    "craco-swc": "^0.5.1",
     "electron": "^19.0.6",
     "electron-builder": "^23.1.0",
     "electron-simple-publisher": "^2.0.1",
@@ -59,6 +61,7 @@
   },
   "dependencies": {
     "@electron/remote": "^2.0.8",
+    "@swc/helpers": "^0.4.3",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.41",
     "electron-is-dev": "^2.0.0",
@@ -67,7 +70,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "typescript": "^4.7.4",
     "v8-compile-cache": "^2.3.0"
   },

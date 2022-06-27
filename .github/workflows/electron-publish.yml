@@ -31,7 +31,7 @@ jobs:
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.rel_token }}
           build_script_name: electron:release
-          args: build
+          args: -c.extraMetadata.main=build/main.js
           max_attempts: 2
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
