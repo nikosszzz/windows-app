@@ -11,10 +11,10 @@
       "requestedExecutionLevel": "requireAdministrator"
     },
     "nsis": {
-      "oneClick": false,
       "uninstallDisplayName": "Windows Utilities Uninstaller",
       "artifactName": "${productName} Setup v${version}.${ext}",
       "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": false,
       "installerIcon": "public/favicon.ico",
@@ -37,6 +37,7 @@
   "author": "nikoszz",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@types/react-router-dom": "^5.3.3",
@@ -45,6 +46,7 @@
     "electron": "^19.0.6",
     "electron-builder": "^23.1.0",
     "electron-simple-publisher": "^2.0.1",
+    "typescript": "^4.7.4",
     "wait-on": "^6.0.1"
   },
   "dependencies": {

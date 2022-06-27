@@ -3,11 +3,9 @@
  * 
  */
 export async function themeAPI() {
-    console.log(`test`)
-    const themeValue = document.querySelector('#theme');
+    const themeValue = document.querySelector('#theme') as HTMLInputElement;
 
     themeValue.addEventListener('change', async () => {
-        console.log(`test`)
         if (themeValue.value === 'light') {
             await window.themeControl.setLight();
             updateTheme();
@@ -29,7 +27,6 @@ export async function themeAPI() {
 
     function updateTheme() {
         window.api.theme.update("updateTheme", "themeData");
-        console.log(`a`)
     }
 }
 

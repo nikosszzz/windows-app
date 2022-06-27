@@ -3,7 +3,7 @@ import React from 'react';
 
 export class Settings extends React.Component {
     componentDidMount() {
-        import('../scripts/themeAPI.js');
+        import('../scripts/themeAPI');
 
     }
     render() {
