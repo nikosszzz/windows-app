@@ -1,9 +1,11 @@
-const
-    { app, BrowserWindow, ipcMain, nativeTheme } = require('electron'),
-    path = require('path'),
-    Store = require('electron-store');
+const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
+const path = require('path');
+const url = require('url');
+const Store = require('electron-store');
+const isDev = require('electron-is-dev');
 
 require('v8-compile-cache');
+require('@electron/remote/main').initialize();
 
 /**
  * Initialize userStore
@@ -23,6 +25,7 @@ const userStore = new Store({
  */
 
 app.on('ready', function () {
+    let window;
     /**
      * Fetch userStore
      */
@@ -35,13 +38,26 @@ app.on('ready', function () {
         autoHideMenuBar: true,
         width: width,
         height: height,
+        show: false,
         webPreferences: {
-            preload: path.join(__dirname, '/scripts/appAPI.js')
+            nodeIntegration: true,
+            enableRemoteModule: true,
+            preload: path.join(__dirname, './appAPI.js')
         }
     })
     exports.userStore = userStore;
     console.log(`window has been initialized`);
-    window.loadFile('./menus/index.html');
+
+    window.loadURL(
+        isDev
+            ? 'http://localhost:3000'
+            : url.urlFrom({
+                pathname: path.join(__dirname, 'index.html'),
+                protocol: 'file:',
+                slashes: true
+            })
+    );
+    window.once('ready-to-show', () => window.show());
 
     /**
      * Open Chrome DevTools on window initialization.
@@ -70,7 +86,7 @@ app.on('ready', function () {
      * Theme controls.
      * 
      */
-    ipcMain.on('updateTheme', (event, data) => {
+    ipcMain.on('updateTheme', (event) => {
         event.reply('themeStatus', userStore.get('themeSet'));
     })
 
