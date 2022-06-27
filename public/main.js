@@ -1,10 +1,11 @@
-const
-    { app, BrowserWindow, ipcMain, nativeTheme } = require('electron'),
-    path = require('path'),
-    Store = require('electron-store');
-const { isError } = require('util');
+const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
+const path = require('path');
+const url = require('url');
+const Store = require('electron-store');
+const isDev = require('electron-is-dev');
 
 require('v8-compile-cache');
+require('@electron/remote/main').initialize();
 
 /**
  * Initialize userStore
@@ -24,6 +25,7 @@ const userStore = new Store({
  */
 
 app.on('ready', function () {
+    let window;
     /**
      * Fetch userStore
      */
@@ -33,16 +35,29 @@ app.on('ready', function () {
     nativeTheme.themeSource = storeTheme;
 
     window = new BrowserWindow({
+        autoHideMenuBar: true,
         width: width,
         height: height,
+        show: false,
         webPreferences: {
-            preload: path.join(__dirname, '/scripts/preload.js')
+            nodeIntegration: true,
+            enableRemoteModule: true,
+            preload: path.join(__dirname, './appAPI.js')
         }
     })
-    global.userStore = userStore;
-    global.window = window;
+    exports.userStore = userStore;
     console.log(`window has been initialized`);
-    window.loadFile('./menus/index.html');
+
+    window.loadURL(
+        isDev
+            ? 'http://localhost:3000'
+            : url.urlFrom({
+                pathname: path.join(__dirname, 'index.html'),
+                protocol: 'file:',
+                slashes: true
+            })
+    );
+    window.once('ready-to-show', () => window.show());
 
     /**
      * Open Chrome DevTools on window initialization.
@@ -71,8 +86,8 @@ app.on('ready', function () {
      * Theme controls.
      * 
      */
-    ipcMain.on('requestTheme', (event, data) => {
-        event.reply('requestedTheme', userStore.get('themeSet'));
+    ipcMain.on('updateTheme', (event) => {
+        event.reply('themeStatus', userStore.get('themeSet'));
     })
 
     ipcMain.handle('theme:setLight', () => {
@@ -95,21 +110,4 @@ app.on('ready', function () {
         nativeTheme.themeSource = 'system';
         userStore.set('themeSet', nativeTheme.themeSource);
     })
-})
-
-/**
- *  All OSes quit the applications once windows are closed,
- *  except macOS so implement the following function.
- * 
- */
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
-})
-
-/**
- * macOS window handling.
- * 
- */
-app.on('activate', () => {
-    if (window.getAllWindows().length === 0) createWindow()
 })

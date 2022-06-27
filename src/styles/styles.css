@@ -1,0 +1,272 @@
+/* ROOT VARIABLES */
+:root {
+    /* Colors */
+    --color-primary: #458588;
+    --color-danger: #BF616A;
+    --color-success: #A3BE8C;
+    --color-warning: #EBCB8B;
+    --color-white: #ebdbb2;
+    --color-dark: #928374;
+
+
+    /* Other */
+    font-size: 16px;
+    font-family: 'Google Sans Text';
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark Theme */
+        --color-bg: #2E3440;
+        --color-bg1: #3B4252;
+        --color-bg2: #434C5E;
+        --color-bg3: #4C566A;
+        --color-bg4: #677590;
+        --color-fg: #ECEFF4;
+        --color-fg1: #E5E9F0;
+        --color-fg2: #D8DEE9;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Light Theme */
+        --color-bg: #fbf1c7;
+        --color-bg1: #ebdbb2;
+        --color-bg2: #d5c4a1;
+        --color--bg3: #bdae93;
+        --color-bg4: #a89984;
+        --color-fg: #3c3836;
+        --color-fg1: #504945;
+        --color-fg2: #665c54;
+    }
+}
+
+body,
+html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin-left: 14rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+/* 
+*   Sidebar
+*/
+
+.sidebar {
+    position: fixed;
+    background: var(--color-bg1);
+    padding: 1rem;
+    overflow: hidden;
+    height: 100vh;
+    width: 12rem;
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.sidebar-item {
+    width: 100%;
+}
+
+.sidebar-item:last-child {
+    margin-top: auto;
+    margin-bottom: 2rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    padding: 1rem;
+    color: var(--color-fg);
+    text-decoration: none;
+    border-radius: 1rem;
+    filter: grayscale(100%) opacity(0.7);
+    transition: filter 300ms ease;
+}
+
+.sidebar-link:hover {
+    background: rgba(235, 219, 178, 0.1);
+    filter: grayscale(0%) opacity(1);
+}
+
+.sidebar-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+}
+
+.sidebar-logo .logo-text {
+    margin: auto;
+    font-size: 2rem;
+}
+
+.sidebar-logo #logo-badge {
+    margin: 0;
+    align-self: flex-start
+}
+
+.link-text {
+    margin-right: auto;
+    margin-left: 1rem;
+}
+
+.sidebar-link svg {
+    width: 2rem;
+}
+
+.link-logo {
+    fill: var(--color-fg);
+}
+
+/* 
+*   Cards
+*/
+
+
+div.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: var(--color-bg1);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 75%;
+}
+
+.card .card-logo {
+    width: 1.8rem;
+    fill: var(--color-fg);
+}
+
+.badge {
+    color: white;
+    background-color: hsl(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%);
+    border-radius: 2.5rem;
+    margin-left: 4px;
+    font-size: 15px;
+    padding: 0 6px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card-desc {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.card-desc .card-title {
+    font-size: 1.4rem;
+}
+
+.card-desc .card-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-fg1);
+}
+
+/* 
+*   Card Types
+*/
+
+/* Dropdowns */
+.card .card-dropdown {
+    margin-left: auto;
+    font-size: 1rem;
+    padding: 0rem 1rem;
+    background: var(--color-bg2);
+    color: var(--color-fg);
+    border: none;
+    border-radius: 0.8rem;
+    max-height: 3rem;
+}
+
+/* Toggle Switch */
+.card .card-toggle {
+    margin-left: auto;
+    --inactive-bg: var(--color-bg2);
+    --active-bg: var(--color-fg2);
+    --size: 1.6rem;
+    appearance: none;
+    width: calc(var(--size) * 2.2);
+    height: var(--size);
+    border-radius: calc(var(--size) / 2);
+    cursor: pointer;
+    background-color: var(--inactive-bg);
+    background-image: radial-gradient(circle calc(var(--size) / 2.625),
+            var(--color-bg4) 100%,
+            #0000 0);
+    background-position: calc(var(--size) / -1.75) 0;
+    transition: background 0.2s ease-out;
+    text-rendering: optimizeLegibility;
+}
+
+.card .card-toggle:checked {
+    background-color: var(--active-bg);
+    background-position: calc(var(--size) / 1.75) 0;
+    background-image: radial-gradient(circle calc(var(--size) / 2.625),
+            var(--color-fg) 100%,
+            #0000 0);
+    text-rendering: optimizeLegibility;
+}
+
+/* Button */
+
+.card .card-button {
+    margin-left: auto;
+    width: auto;
+    height: 2rem;
+    padding: 0 1rem;
+    background: var(--color-bg2);
+    color: var(--color-fg);
+    border: none;
+    border-radius: 0.8rem;
+}
+
+.card .card-button:hover {
+    background: var(--color-bg3);
+}
+
+.card .card-button:active {
+    background: var(--color-bg4);
+}
+
+@font-face {
+    font-family: 'Google Sans Text';
+    src: url('google-sans-text.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+    /* Text smoothing stuff. */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
