@@ -39,7 +39,8 @@
     "build": "react-scripts build",
     "electron:serve": "concurrently -k \"pnpm start\" \"wait-on http://localhost:3000\"",
     "electron:start": "wait-on tcp:3000 && electron .",
-    "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=build/main.js"
+    "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=build/main.js",
+    "electron:release": "pnpm build"
   },
   "keywords": [],
   "author": "nikoszz",
