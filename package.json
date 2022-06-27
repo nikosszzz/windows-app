@@ -4,10 +4,6 @@
     "productName": "Windows Utilities",
     "copyright": "Copyright © 2022 ${author}",
     "extends": null,
-    "files": [
-      "build/**/*",
-      "package.json"
-    ],
     "directories": {
       "buildResources": "public"
     },
