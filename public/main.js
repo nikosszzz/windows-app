@@ -86,7 +86,7 @@ app.on('ready', function () {
      * Theme controls.
      * 
      */
-    ipcMain.on('updateTheme', (event, data) => {
+    ipcMain.on('updateTheme', (event) => {
         event.reply('themeStatus', userStore.get('themeSet'));
     })
 
