@@ -167,6 +167,7 @@ div.card {
 }
 
 .badge {
+    color: white;
     background-color: hsl(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%);
     border-radius: 2.5rem;
     margin-left: 4px;

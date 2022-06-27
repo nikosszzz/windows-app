@@ -37,7 +37,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "electron:serve": "concurrently -k \"pnpm start\" \"wait-on http://localhost:3000\"",
+    "electron:serve": "concurrently -k \"cross-env BROWSER=none\" \"pnpm start\"\"wait-on http://localhost:3000\"",
     "electron:start": "wait-on tcp:3000 && electron .",
     "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=build/main.js"
   },

@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
 const path = require('path');
+const url = require('url');
 const Store = require('electron-store');
 const isDev = require('electron-is-dev');
 
@@ -48,10 +49,14 @@ app.on('ready', function () {
     console.log(`window has been initialized`);
 
     window.loadURL(
-        isDev 
-        ? 'http://localhost:3000'
-        : `file://${path.join(__dirname, `../build/index.html`)}`
-        );
+        isDev
+            ? 'http://localhost:3000'
+            : url.urlFrom({
+                pathname: path.join(__dirname, 'index.html'),
+                protocol: 'file:',
+                slashes: true
+            })
+    );
     window.once('ready-to-show', () => window.show());
 
     /**
