@@ -2,7 +2,7 @@
  * Theme button controls.
  * 
  */
-export async function themeAPI() {
+export async function themeAPI(): Promise<void> {
     const themeValue = document.querySelector('#theme') as HTMLInputElement;
 
     themeValue.addEventListener('change', async () => {
@@ -28,6 +28,8 @@ export async function themeAPI() {
     function updateTheme() {
         window.api.theme.update("updateTheme", "themeData");
     }
-}
 
-themeAPI();
+    function stop(): void {
+        return;
+    }
+}

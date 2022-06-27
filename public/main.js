@@ -51,7 +51,7 @@ app.on('ready', function () {
     window.loadURL(
         isDev
             ? 'http://localhost:3000'
-            : url.urlFrom({
+            : url.format({
                 pathname: path.join(__dirname, 'index.html'),
                 protocol: 'file:',
                 slashes: true

@@ -9,10 +9,12 @@ const container = document.querySelector('#root');
 const root = createRoot(container!);
 
 root.render(
-  <HashRouter>
-    <Routes>
-      <Route path="/" element={<Main/>}/>
-      <Route path="/settings" element={<Settings/>}/>
-    </Routes>
-  </HashRouter>
+  <React.StrictMode>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+    </HashRouter>
+  </React.StrictMode>
 );

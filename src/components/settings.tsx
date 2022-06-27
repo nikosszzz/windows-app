@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { themeAPI } from '../scripts/themeAPI';
 
 export default class Settings extends React.Component {
-    componentDidMount() {
-        import('../scripts/themeAPI');
+    componentDidMount(): void {
+        themeAPI();
     }
     render() {
         return (

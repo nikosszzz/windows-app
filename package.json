@@ -5,9 +5,7 @@
     "copyright": "Copyright © 2022 ${author}",
     "extends": null,
     "files": [
-      "dist/**/*",
       "build/**/*",
-      "node_modules/**/*",
       "package.json"
     ],
     "directories": {
@@ -29,9 +27,13 @@
       "uninstallerIcon": "public/favicon.ico"
     }
   },
+  "publishConfig": {
+    "detectUpdateChannel": true
+  },
   "name": "windows-utilities",
   "version": "1.0.0",
   "description": "Simple windows utility tool.",
+  "repository": "https://github.com/nikosszzz/windows-app",
   "main": "./public/main.js",
   "homepage": "./",
   "scripts": {
