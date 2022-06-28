@@ -25,7 +25,7 @@ contextBridge.exposeInMainWorld("api", {
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
         }
-    },  
+    },
     settings: {
         requestData: (channel, data) => {
             let validChannels = ["userStoreReq"];
@@ -37,6 +37,13 @@ contextBridge.exposeInMainWorld("api", {
             let validChannels = ["userData"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.on(channel, (event, ...args) => func(...args))
+            }
+        },
+        unmount: () => {
+            console.log(`[API] Unmounting Settings API`)
+            const channels = ["userData", "userStoreReq", "themeStatus", "updateTheme"];
+            for (var events in channels) {
+                ipcRenderer.removeAllListeners(channels[events]);
             }
         }
     }

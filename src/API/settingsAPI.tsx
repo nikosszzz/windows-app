@@ -1,7 +1,8 @@
 import chalk from "chalk";
+import { themeAPI } from "./themeAPI";
 
 export async function settingsAPI(): Promise<void> {
-    chalk.grey(console.log(`[API] Settings initialized.`));
+    chalk.grey(console.log(`[API] Settings initialized`));
 
     await window.api.settings.requestData("userStoreReq", "userData");
     await window.api.settings.fetch("userData", (theme: string, windowBounds: any) => {
@@ -13,6 +14,9 @@ export async function settingsAPI(): Promise<void> {
         chalk.yellow(console.log(`Done fetching userStore Data`))
     });
 
-    //window.api.theme.update("updateTheme", "themeData");
-
+    /**
+     * Themes API initialization
+     * 
+     */
+    themeAPI();
 }

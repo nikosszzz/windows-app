@@ -1,13 +1,14 @@
 import React from 'react';
-import { themeAPI } from '../API/themeAPI';
 import { settingsAPI } from '../API/settingsAPI';
 import { Link } from 'react-router-dom';
 
 export default class Settings extends React.Component {
     componentDidMount(): void {
         settingsAPI();
-        themeAPI();
-    }   
+    }
+    componentWillUnmount(): void {
+        window.api.settings.unmount();
+    }
     render(): JSX.Element {
         return (
             <div className="page">
