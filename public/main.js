@@ -5,7 +5,7 @@ const
     Store = require('electron-store'),
     isDev = require('electron-is-dev');
 
-require('v8-compile-cache-lib').install({ cacheDir: path.join(__dirname, './cache') });
+require('v8-compile-cache-lib').install({ cacheDir: 'cache' });
 /**
  * Initialize userStore
  * 
@@ -59,7 +59,7 @@ app.on('ready', () => {
     window.once('ready-to-show', () => {
         window.show();
         window.webContents.openDevTools();
-        console.log(`[App] Window loaded`)
+        console.log(`[App] Window loaded`);
     });
 
     /**
@@ -113,7 +113,8 @@ app.on('ready', () => {
      *
      */
     ipcMain.on('userStoreReq', (event) => {
-        const windowBounds = width + `x` + height;
+        let { width, height } = userStore.get('windowBounds');
+        let windowBounds = width + `x` + height;
         event.reply('userData', userStore.get('themeSet'), windowBounds);
     });
 })

@@ -12,7 +12,6 @@ export async function themeAPI(): Promise<void> {
             await window.themeControl.setLight();
             updateTheme();
         }
-
         if (themeValue.value === 'dark') {
             await window.themeControl.setDark();
             updateTheme();
@@ -25,10 +24,10 @@ export async function themeAPI(): Promise<void> {
 
     async function updateTheme(): Promise<void> {
         await window.api.theme.update("updateTheme", "themeData");
+        window.api.theme.status("themeStatus", (themeData: string) => {
+            themeValue.value = themeData;
+        })
     }
-    
+
     updateTheme();
-    window.api.theme.status("themeStatus", (themeData) => {
-        themeValue.value = themeData;
-    })
 }

@@ -1,5 +1,3 @@
-.\publisher.json
-
 # dependencies
 /node_modules
 /.pnp
@@ -12,6 +10,7 @@
 # production
 /dist
 /build
+/cache
 
 # misc
 .DS_Store
