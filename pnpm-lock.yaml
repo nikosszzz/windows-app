@@ -15,7 +15,6 @@ specifiers:
   electron-builder: ^23.1.0
   electron-is-dev: ^2.0.0
   electron-simple-publisher: ^2.0.1
-  electron-simple-updater: ^2.0.11
   electron-store: ^8.0.2
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -31,7 +30,6 @@ dependencies:
   '@types/node': 16.11.41
   chalk: 4.1.2
   electron-is-dev: 2.0.0
-  electron-simple-updater: 2.0.11
   electron-store: 8.0.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3278,14 +3276,6 @@ packages:
     resolution: {integrity: sha512-LVAaGp/wkkgYJcjmHsoKx4juT1aQvJyPcW09MLCjVTh3V2cc6PnyempiLMNH5iMdfIX/zdbjUx2KDjMLCTdPeA==}
     engines: {node: '>=12'}
 
-  /axios/0.24.0:
-    resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==}
-    dependencies:
-      follow-redirects: 1.15.1
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
   /axios/0.25.0:
     resolution: {integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==}
     dependencies:
@@ -4736,16 +4726,6 @@ packages:
     transitivePeerDependencies:
       - encoding
     dev: true
-
-  /electron-simple-updater/2.0.11:
-    resolution: {integrity: sha512-V6SsmquUZJDfggW2KzmSruEIQyWvQBSs89hwS/CTmfH2Y8liZnofoyjkX5hOI7SoluYCERtQJJwTJbj0lte2bA==}
-    engines: {node: '>=8.0'}
-    dependencies:
-      axios: 0.24.0
-      semver: 7.3.7
-    transitivePeerDependencies:
-      - debug
-    dev: false
 
   /electron-store/8.0.2:
     resolution: {integrity: sha512-9GwUMv51w8ydbkaG7X0HrPlElXLApg63zYy1/VZ/a08ndl0gfm4iCoD3f0E1JvP3V16a+7KxqriCI0c122stiA==}

@@ -1,9 +1,8 @@
-const
-    { app, BrowserWindow, ipcMain, nativeTheme } = require('electron'),
-    path = require('path'),
-    url = require('url'),
-    Store = require('electron-store'),
-    isDev = require('electron-is-dev');
+import { app, BrowserWindow, ipcMain, nativeTheme } from 'electron';
+import url from 'url';
+import path from 'path';
+import Store from 'electron-store';
+import isDev from 'electron-is-dev';
 
 require('v8-compile-cache-lib').install({ cacheDir: 'cache' });
 /**
@@ -11,6 +10,7 @@ require('v8-compile-cache-lib').install({ cacheDir: 'cache' });
  * 
  */
 const userStore = new Store({
+    //@ts-ignore
     configName: 'userStore',
     defaults: {
         themeSet: 'system',
@@ -29,6 +29,7 @@ app.on('ready', () => {
      */
     let storeTheme = userStore.get('themeSet');
     let { width, height } = userStore.get('windowBounds');
+    //@ts-ignore
     nativeTheme.themeSource = storeTheme;
 
     window = new BrowserWindow({

@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer } = require('electron');
+import { contextBridge, ipcRenderer } from 'electron';
 
 /**
  * Requests API
@@ -60,8 +60,8 @@ contextBridge.exposeInMainWorld('themeControl', {
 })
 
 window.addEventListener('DOMContentLoaded', () => {
-    replaceText = (selector, text) => {
-        const element = document.querySelector(`#${selector}`);
+    function replaceText(selector, text) {
+        const element = document.querySelector(`#${selector}`) as HTMLElement;
         if (element) element.innerText = text;
     }
 })
