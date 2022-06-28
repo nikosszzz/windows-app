@@ -38,7 +38,7 @@
     "build:ts": "tsc",
     "electron:serve": "concurrently -k \"pnpm start\" \"wait-on http://localhost:3000\"",
     "electron:start": "pnpm run build:ts && wait-on tcp:3000 && electron . ",
-    "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=build/electron.js",
+    "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=dist/electron.js",
     "electron:release": "pnpm build"
   },
   "keywords": [],
