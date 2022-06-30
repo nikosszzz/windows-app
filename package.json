@@ -27,7 +27,7 @@
     "detectUpdateChannel": true
   },
   "name": "windows-utilities",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple windows utility tool.",
   "repository": "github:nikosszzz/windows-app",
   "main": "./build/electron.js",
