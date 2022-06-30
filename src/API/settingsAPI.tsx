@@ -19,4 +19,12 @@ export async function settingsAPI(): Promise<void> {
      * 
      */
     themeAPI();
+
+    /**
+     * Settings API initialization
+     * 
+     */
+    const updateButton = document.querySelector('#updateBtn') as HTMLElement;
+    const updateDescription = document.querySelector('#updateInfo') as HTMLElement;
+    window.api.updater.init(updateButton, updateDescription)    ;
 }

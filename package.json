@@ -29,7 +29,7 @@
   "name": "windows-utilities",
   "version": "1.0.0",
   "description": "Simple windows utility tool.",
-  "repository": "https://github.com/nikosszzz/windows-app",
+  "repository": "github:nikosszzz/windows-app",
   "main": "./build/electron.js",
   "homepage": "./",
   "scripts": {
@@ -38,7 +38,7 @@
     "build:ts": "tsc",
     "electron:serve": "concurrently -k \"pnpm start\" \"wait-on http://localhost:3000\"",
     "electron:start": "pnpm run build:ts && wait-on tcp:3000 && electron . ",
-    "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=dist/electron.js",
+    "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=build/electron.js",
     "electron:release": "pnpm build"
   },
   "keywords": [],
@@ -65,6 +65,7 @@
     "chalk": "4.1.2",
     "electron-is-dev": "^2.0.0",
     "electron-store": "^8.0.2",
+    "electron-updater": "^5.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",

@@ -123,10 +123,10 @@ export default class Settings extends React.Component {
 
                         <div className="card-desc">
                             <span className="card-title"> Update </span>
-                            <span className="card-subtitle"> Check for any new updates to the app! </span>
+                            <span className="card-subtitle" id="updateInfo"> Check for any new updates to the app! </span>
                         </div>
 
-                        <button className="card-button" id="button"> Check </button>
+                        <button className="card-button" id="updateBtn"> Check </button>
                     </div>
 
                     <div className="card">

@@ -3,6 +3,7 @@ import url from 'url';
 import path from 'path';
 import Store from 'electron-store';
 import isDev from 'electron-is-dev';
+import { autoUpdater } from 'electron-updater';
 
 require('v8-compile-cache-lib').install({ cacheDir: 'cache' });
 /**
@@ -22,7 +23,7 @@ const userStore = new Store({
  * App initalization
  * 
  */
-app.on('ready', () => {
+app.on('ready', (): void => {
     let window;
     /**
      * Fetch user data
@@ -31,6 +32,14 @@ app.on('ready', () => {
     let { width, height } = userStore.get('windowBounds');
     //@ts-ignore
     nativeTheme.themeSource = storeTheme;
+
+    autoUpdater.setFeedURL({
+        provider: "github",
+        owner: "nikosszzz",
+        repo: "windows-app",
+        private: false,
+        releaseType: "release"
+    })
 
     window = new BrowserWindow({
         autoHideMenuBar: true,
@@ -43,6 +52,7 @@ app.on('ready', () => {
         }
     });
     console.log(`[App] Window initializing`);
+    console.log(app.getVersion());
 
     window.loadURL(
         isDev
@@ -57,7 +67,7 @@ app.on('ready', () => {
      * Open Chrome DevTools when window is ready.
      *
      */
-    window.once('ready-to-show', () => {
+    window.once('ready-to-show', (): void => {
         window.show();
         window.webContents.openDevTools();
         console.log(`[App] Window loaded`);
@@ -67,7 +77,7 @@ app.on('ready', () => {
      * Nullify the window object on close.
      *
      */
-    window.on("closed", () => {
+    window.on("closed", (): void => {
         window = null;
     });
 
@@ -75,7 +85,7 @@ app.on('ready', () => {
      * Change window dimensions in userStore on resize.
      *
      */
-    window.on('resize', () => {
+    window.on('resize', (): void => {
         let { width, height } = window.getBounds();
         userStore.set('windowBounds', { width, height });
     });
@@ -84,11 +94,11 @@ app.on('ready', () => {
      * Theme controls.
      *
      */
-    ipcMain.on('updateTheme', (event) => {
+    ipcMain.on('updateTheme', (event): void => {
         event.reply('themeStatus', userStore.get('themeSet'));
     });
 
-    ipcMain.handle('theme:setLight', () => {
+    ipcMain.handle('theme:setLight', (): boolean => {
         if (nativeTheme.shouldUseDarkColors || nativeTheme.themeSource === 'system') {
             nativeTheme.themeSource = 'light';
             userStore.set('themeSet', nativeTheme.themeSource);
@@ -96,7 +106,7 @@ app.on('ready', () => {
         return nativeTheme.shouldUseDarkColors;
     });
 
-    ipcMain.handle('theme:setDark', () => {
+    ipcMain.handle('theme:setDark', (): boolean => {
         if (!nativeTheme.shouldUseDarkColors || nativeTheme.themeSource === 'system') {
             nativeTheme.themeSource = 'dark';
             userStore.set('themeSet', nativeTheme.themeSource);
@@ -104,7 +114,7 @@ app.on('ready', () => {
         return nativeTheme.shouldUseDarkColors;
     });
 
-    ipcMain.handle('theme:setSystem', () => {
+    ipcMain.handle('theme:setSystem', (): void => {
         nativeTheme.themeSource = 'system';
         userStore.set('themeSet', nativeTheme.themeSource);
     });
@@ -113,9 +123,14 @@ app.on('ready', () => {
      * Settings API reqs.
      *
      */
-    ipcMain.on('userStoreReq', (event) => {
+    ipcMain.on('userStoreReq', (event): void => {
         let { width, height } = userStore.get('windowBounds');
         let windowBounds = width + `x` + height;
         event.reply('userData', userStore.get('themeSet'), windowBounds);
     });
+
+    ipcMain.on('checkUpdate', function (): void {
+        console.log(`test`)
+        autoUpdater.checkForUpdatesAndNotify();
+    })
 })
