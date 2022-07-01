@@ -140,6 +140,29 @@ main {
     fill: var(--color-fg);
 }
 
+
+/* 
+*   Page Introductions
+*/
+
+.page-introduction {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-items: center;
+    text-align: left;
+    margin-bottom: 2rem;
+    width: 75%;
+}
+
+.page-introduction .page-title {
+    font-size: 2.75rem;
+}
+
+.page-introduction .page-subtitle {
+    font-size: 1rem;
+}
+
 /* 
 *   Cards
 */
@@ -147,15 +170,30 @@ main {
 
 div.card {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: relative;
     background: var(--color-bg1);
     padding: 1rem;
     border-radius: 1rem;
     text-align: center;
     margin-bottom: 1rem;
     width: 75%;
+}
+
+.card .card-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card .card-input {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .card .card-logo {
@@ -258,6 +296,14 @@ div.card {
 
 .card .card-button:active {
     background: var(--color-bg4);
+}
+
+/* Dropdown */
+
+.card .dropdown-icon {
+    margin-left: 1rem;
+    width: 1.5rem;
+    fill: var(--color-fg);
 }
 
 @font-face {

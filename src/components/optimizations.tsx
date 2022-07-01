@@ -55,10 +55,9 @@ export default class Optimizations extends React.Component {
                 </nav>
 
                 <main>
-                    <div id="introduction" className="card">
-                        <div className="card-content">
-                            <h1> Optimizations </h1>
-                        </div>
+                    <div id="introduction" className="page-introduction">
+                        <span className="page-title"> Optimizations </span>
+                        <span className="page-subtitle"> Optimize windows for performance and security. </span>
                     </div>
                 </main>
             </div>
