@@ -15,13 +15,13 @@ contextBridge.exposeInMainWorld("api", {
     },
     theme: {
         update: (channel, data) => {
-            let validChannels = ["updateTheme"];
+            const validChannels = ["updateTheme"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }
         },
         status: (channel, func) => {
-            let validChannels = ["themeStatus"];
+            const validChannels = ["themeStatus"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
@@ -29,13 +29,13 @@ contextBridge.exposeInMainWorld("api", {
     },
     settings: {
         requestData: (channel, data) => {
-            let validChannels = ["userStoreReq"];
+            const validChannels = ["userStoreReq"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }
         },
         fetch: (channel, func) => {
-            let validChannels = ["userData"];
+            const validChannels = ["userData"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.on(channel, (event, ...args) => func(...args))
             }
@@ -43,7 +43,7 @@ contextBridge.exposeInMainWorld("api", {
         unmount: () => {
             console.log(`[API] Unmounting Settings API`)
             const channels = ["userData", "userStoreReq", "themeStatus", "updateTheme"];
-            for (var events in channels) {
+            for (const events in channels) {
                 ipcRenderer.removeAllListeners(channels[events]);
 
             }

@@ -28,8 +28,8 @@ app.on('ready', (): void => {
     /**
      * Fetch user data
      */
-    let storeTheme = userStore.get('themeSet');
-    let { width, height } = userStore.get('windowBounds');
+    const storeTheme = userStore.get('themeSet');
+    const { width, height } = userStore.get('windowBounds');
     //@ts-ignore
     nativeTheme.themeSource = storeTheme;
 
@@ -86,7 +86,7 @@ app.on('ready', (): void => {
      *
      */
     window.on('resize', (): void => {
-        let { width, height } = window.getBounds();
+        const { width, height } = window.getBounds();
         userStore.set('windowBounds', { width, height });
     });
 
@@ -124,8 +124,8 @@ app.on('ready', (): void => {
      *
      */
     ipcMain.on('userStoreReq', (event): void => {
-        let { width, height } = userStore.get('windowBounds');
-        let windowBounds = width + `x` + height;
+        const { width, height } = userStore.get('windowBounds');
+        const windowBounds = width + `x` + height;
         event.reply('userData', userStore.get('themeSet'), windowBounds);
     });
 
