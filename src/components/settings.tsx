@@ -1,6 +1,6 @@
-import React from 'react';
-import { settingsAPI } from '../API/settingsAPI';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { settingsAPI } from "../API/settingsAPI";
+import { Link } from "react-router-dom";
 
 export default class Settings extends React.Component {
     componentDidMount(): void {
