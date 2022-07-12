@@ -1,5 +1,5 @@
-import { contextBridge, ipcRenderer } from 'electron';
-import { autoUpdater } from 'electron-updater';
+import { contextBridge, ipcRenderer } from "electron";
+import { autoUpdater } from "electron-updater";
 
 /**
  * Requests API
@@ -37,11 +37,11 @@ contextBridge.exposeInMainWorld("api", {
         fetch: (channel, func) => {
             const validChannels = ["userData"];
             if (validChannels.includes(channel)) {
-                ipcRenderer.on(channel, (event, ...args) => func(...args))
+                ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
         },
         unmount: () => {
-            console.log(`[API] Unmounting Settings API`)
+            console.log("[API] Unmounting Settings API");
             const channels = ["userData", "userStoreReq", "themeStatus", "updateTheme"];
             for (const events in channels) {
                 ipcRenderer.removeAllListeners(channels[events]);
@@ -51,59 +51,52 @@ contextBridge.exposeInMainWorld("api", {
     },
     updater: {
         init: async (updateButton, updateDescription) => {
-            console.log(`[API] Initializing Updater API`);
+            console.log("[API] Initializing Updater API");
             updateButton.onclick = async (): Promise<void> => {
-                ipcRenderer.send('checkUpdate')
-                autoUpdater.on('checking-for-update', () => {
+                ipcRenderer.send("checkUpdate");
+                autoUpdater.on("checking-for-update", () => {
                     updateButton.innerHTML = "Checking...";
                 });
-                autoUpdater.on('update-not-available', () => {
+                autoUpdater.on("update-not-available", () => {
                     updateButton.innerHTML = "Up to date!";
                     setInterval(() => {
                         changeDefaults();
                     }, 3000);
                 });
-                autoUpdater.on('update-not-available', () => {
+                autoUpdater.on("update-not-available", () => {
                     updateButton.innerHTML = "Error!";
                     updateDescription.innerHTML = "An error has occured while checking/installing updates.";
                     setInterval(() => {
                         changeDefaults();
                     }, 3000);
                 });
-                autoUpdater.on('update-available', () => {
+                autoUpdater.on("update-available", () => {
                     updateButton.innerHTML = "Downloading...";
                     updateDescription.innerHTML = "An update has been found!";
                 });
-                autoUpdater.on('update-downloaded', (releaseName) => {
+                autoUpdater.on("update-downloaded", (releaseName) => {
                     updateButton.innerHTML = "Install";
                     updateDescription.innerHTML = "Update version: " + releaseName;
                 });
-            }
+            };
             function changeDefaults(): void {
-                updateButton.innerHTML = 'Check';
-                updateDescription.innerHTML = 'Check for any new updates to the app!';
+                updateButton.innerHTML = "Check";
+                updateDescription.innerHTML = "Check for any new updates to the app!";
             }
         }
     }
-})
+});
 
 /**
  * Themes API
  * 
  */
-contextBridge.exposeInMainWorld('themeControl', {
-    setLight: () => ipcRenderer.invoke('theme:setLight'),
-    setDark: () => ipcRenderer.invoke('theme:setDark'),
-    setSystem: () => ipcRenderer.invoke('theme:setSystem')
-})
+contextBridge.exposeInMainWorld("themeControl", {
+    setLight: () => ipcRenderer.invoke("theme:setLight"),
+    setDark: () => ipcRenderer.invoke("theme:setDark"),
+    setSystem: () => ipcRenderer.invoke("theme:setSystem")
+});
 
-window.addEventListener('DOMContentLoaded', () => {
-    function replaceText(selector: string, text: string) {
-        const element = document.querySelector(`#${selector}`) as HTMLElement;
-        if (element) element.innerText = text;
-    }
-})
-
-function data(arg0: string, data: any) {
-    throw new Error('Function not implemented.');
-}
+window.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM Loaded");
+});

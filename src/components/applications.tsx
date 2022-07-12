@@ -55,7 +55,7 @@ export default class Applications extends React.Component {
                 </nav>
 
                 <main>
-                <div id="introduction" className="page-introduction">
+                    <div id="introduction" className="page-introduction">
                         <span className="page-title"> Applications </span>
                         <span className="page-subtitle"> Install your needed apps in one page! </span>
                     </div>

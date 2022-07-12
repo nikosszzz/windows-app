@@ -1,5 +1,6 @@
-const CracoSwcPlugin = require('craco-swc');
+/* eslint-disable @typescript-eslint/no-var-requires */
+const CracoSwcPlugin = require("craco-swc");
 
 module.exports = {
-  plugins: [{ plugin: CracoSwcPlugin }],
+    plugins: [{ plugin: CracoSwcPlugin }],
 };
