@@ -6,11 +6,11 @@ export async function settingsAPI(): Promise<void> {
     chalk.grey(console.log("[API] Settings initialized"));
 
     await window.api.settings.requestData("userStoreReq", "userData");
-    await window.api.settings.fetch("userData", (theme: string, windowBounds: string): void => {
+    await window.api.settings.fetch("userData", (data: any): void => {
         chalk.yellow(console.log("[API] Fetching userStore Data"));
         chalk.grey(console.log("------- BEGIN USER DATA LIST -------"));
-        chalk.grey(console.log("Theme: " + theme));
-        chalk.grey(console.log("Window bounds: " + windowBounds));
+        chalk.grey(console.log("Theme: " + data.Theme));
+        chalk.grey(console.log("Window bounds: " + data.WindowBounds.Width + "x" + data.WindowBounds.Height));
         chalk.grey(console.log("------- END USER DATA LIST -------"));
         chalk.yellow(console.log("[API] Fetched userStore Data"));
     });
@@ -20,12 +20,4 @@ export async function settingsAPI(): Promise<void> {
      * 
      */
     themeAPI();
-
-    /**
-     * Settings API initialization
-     * 
-     */
-    const updateButton = document.querySelector("#updateBtn") as HTMLElement;
-    const updateDescription = document.querySelector("#updateInfo") as HTMLElement;
-    window.api.updater.init(updateButton, updateDescription)    ;
 }

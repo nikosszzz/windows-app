@@ -3,7 +3,6 @@ import url from "url";
 import path from "path";
 import Store from "electron-store";
 import isDev from "electron-is-dev";
-import { autoUpdater } from "electron-updater";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("v8-compile-cache-lib").install({ cacheDir: "cache" });
@@ -33,14 +32,6 @@ app.on("ready", (): void => {
     const { width, height } = userStore.get("windowBounds");
     //@ts-ignore
     nativeTheme.themeSource = storeTheme;
-
-    autoUpdater.setFeedURL({
-        provider: "github",
-        owner: "nikosszzz",
-        repo: "windows-app",
-        private: false,
-        releaseType: "release"
-    });
 
     window = new BrowserWindow({
         autoHideMenuBar: true,
@@ -126,12 +117,16 @@ app.on("ready", (): void => {
      */
     ipcMain.on("userStoreReq", (event): void => {
         const { width, height } = userStore.get("windowBounds");
-        const windowBounds = width + "x" + height;
-        event.reply("userData", userStore.get("themeSet"), windowBounds);
-    });
+        const theme = userStore.get("themeSet");
 
-    ipcMain.on("checkUpdate", function (): void {
-        console.log("test");
-        autoUpdater.checkForUpdatesAndNotify();
+        const data = {
+            Theme: theme,
+            WindowBounds: {
+                Width: width,
+                Height: height
+            }
+        };
+
+        event.reply("userData", data);
     });
 });

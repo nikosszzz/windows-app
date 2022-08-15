@@ -33,6 +33,7 @@
   "main": "./build/electron.js",
   "homepage": "./",
   "scripts": {
+    "lint": "eslint . --fix",
     "start": "craco start",
     "build": "craco build && pnpm run build:ts",
     "build:ts": "tsc",

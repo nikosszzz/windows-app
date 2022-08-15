@@ -1,5 +1,4 @@
 import { contextBridge, ipcRenderer } from "electron";
-import { autoUpdater } from "electron-updater";
 
 /**
  * Requests API
@@ -49,42 +48,6 @@ contextBridge.exposeInMainWorld("api", {
             }
         }
     },
-    updater: {
-        init: async (updateButton, updateDescription) => {
-            console.log("[API] Initializing Updater API");
-            updateButton.onclick = async (): Promise<void> => {
-                ipcRenderer.send("checkUpdate");
-                autoUpdater.on("checking-for-update", () => {
-                    updateButton.innerHTML = "Checking...";
-                });
-                autoUpdater.on("update-not-available", () => {
-                    updateButton.innerHTML = "Up to date!";
-                    setInterval(() => {
-                        changeDefaults();
-                    }, 3000);
-                });
-                autoUpdater.on("update-not-available", () => {
-                    updateButton.innerHTML = "Error!";
-                    updateDescription.innerHTML = "An error has occured while checking/installing updates.";
-                    setInterval(() => {
-                        changeDefaults();
-                    }, 3000);
-                });
-                autoUpdater.on("update-available", () => {
-                    updateButton.innerHTML = "Downloading...";
-                    updateDescription.innerHTML = "An update has been found!";
-                });
-                autoUpdater.on("update-downloaded", (releaseName) => {
-                    updateButton.innerHTML = "Install";
-                    updateDescription.innerHTML = "Update version: " + releaseName;
-                });
-            };
-            function changeDefaults(): void {
-                updateButton.innerHTML = "Check";
-                updateDescription.innerHTML = "Check for any new updates to the app!";
-            }
-        }
-    }
 });
 
 /**
