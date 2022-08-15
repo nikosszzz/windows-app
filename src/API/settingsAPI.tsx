@@ -6,7 +6,7 @@ export async function settingsAPI(): Promise<void> {
     chalk.grey(console.log("[API] Settings initialized"));
 
     await window.api.settings.requestData("userStoreReq", "userData");
-    await window.api.settings.fetch("userData", (data: any): void => {
+    await window.api.settings.fetch("userData", (data: { Theme: string, WindowBounds: { Width: string, Height: string } }): void => {
         chalk.yellow(console.log("[API] Fetching userStore Data"));
         chalk.grey(console.log("------- BEGIN USER DATA LIST -------"));
         chalk.grey(console.log("Theme: " + data.Theme));
