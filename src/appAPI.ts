@@ -27,6 +27,13 @@ contextBridge.exposeInMainWorld("api", {
         }
     },
     settings: {
+
+        update: (channel, data) => {
+            const validChannels = ["update"];
+            if (validChannels.includes(channel)) {
+                ipcRenderer.send(channel, data);
+            }
+        },
         requestData: (channel, data) => {
             const validChannels = ["userStoreReq"];
             if (validChannels.includes(channel)) {
@@ -57,8 +64,4 @@ contextBridge.exposeInMainWorld("themeControl", {
     setLight: () => ipcRenderer.invoke("theme:setLight"),
     setDark: () => ipcRenderer.invoke("theme:setDark"),
     setSystem: () => ipcRenderer.invoke("theme:setSystem")
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM Loaded");
 });

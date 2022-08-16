@@ -39,7 +39,7 @@ export default class Settings extends React.Component {
                     </div>
                 </div>
 
-                <div id="toggle" className="card">
+                <div id="devtools" className="card">
                     <div className="card-info">
                         <svg className="card-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                             <path
@@ -47,13 +47,13 @@ export default class Settings extends React.Component {
                         </svg>
 
                         <div className="card-desc">
-                            <span className="card-title"> Toggle </span>
-                            <span className="card-subtitle"> Toggle switch card demo </span>
+                            <span className="card-title"> Enable DevTools </span>
+                            <span className="card-subtitle"> Enables Electron DevTools on Startup. (Changes will take effect on restart.) </span>
                         </div>
                     </div>
 
                     <div className="card-input">
-                        <input type="checkbox" className="card-toggle" id="toggle" />
+                        <input type="checkbox" className="card-toggle" id="devtools-toggle" />
                     </div>
                 </div>
 

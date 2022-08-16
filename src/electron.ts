@@ -15,6 +15,7 @@ const userStore = new Store({
     configName: "userStore",
     defaults: {
         themeSet: "system",
+        devTools: false,
         windowBounds: { width: 800, height: 600 }
     }
 });
@@ -28,6 +29,7 @@ app.on("ready", (): void => {
     /**
      * Fetch user data
      */
+    const devToolsStartup = userStore.get("devTools");
     const storeTheme = userStore.get("themeSet");
     const { width, height } = userStore.get("windowBounds");
     //@ts-ignore
@@ -44,7 +46,7 @@ app.on("ready", (): void => {
         }
     });
     console.log("[App] Window initializing");
-    console.log(app.getVersion());
+    console.log("[App] [Logger] Version: " + app.getVersion());
 
     window.loadURL(
         isDev
@@ -62,6 +64,8 @@ app.on("ready", (): void => {
     window.once("ready-to-show", (): void => {
         window.show();
         window.webContents.openDevTools();
+        if (devToolsStartup === true) console.log(devToolsStartup);
+        if (devToolsStartup === true) window.webContents.openDevTools();
         console.log("[App] Window loaded");
     });
 
@@ -128,5 +132,10 @@ app.on("ready", (): void => {
         };
 
         event.reply("userData", data);
+    });
+    ipcMain.on("update", (data: any): void => {
+        console.log("a");
+        console.log(data);
+        userStore.set(data.setting as string, data.value as boolean);
     });
 });

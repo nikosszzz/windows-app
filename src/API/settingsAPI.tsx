@@ -1,7 +1,6 @@
 import { themeAPI } from "./themeAPI";
 import chalk from "chalk";
 
-
 export async function settingsAPI(): Promise<void> {
     chalk.grey(console.log("[API] Settings initialized"));
 
@@ -20,4 +19,24 @@ export async function settingsAPI(): Promise<void> {
      * 
      */
     themeAPI();
+
+    const devToolsToggle = document.querySelector("#devtools-toggle") as HTMLInputElement;
+
+    devToolsToggle.onchange = async (): Promise<void> => {
+        if (devToolsToggle.checked) {
+            const data = {
+                setting: "devTools",
+                value: true
+            };
+            await window.api.settings.update("update", data);
+            console.log("[API] DevTools on Startup enabled");
+        } else {
+            const data = {
+                setting: "devTools",
+                value: false
+            };
+            await window.api.settings.update("update", data);
+            console.log("[API] DevTools on Startup disabled");
+        }
+    };
 }
