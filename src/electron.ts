@@ -95,7 +95,7 @@ app.on("ready", (): void => {
             nativeTheme.themeSource = "light";
             userStore.set("themeSet", nativeTheme.themeSource);
         }
-        return nativeTheme.shouldUseDarkColors;
+        return !nativeTheme.shouldUseDarkColors;
     });
 
     ipcMain.handle("theme:setDark", (): boolean => {
