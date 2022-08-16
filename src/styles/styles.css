@@ -110,6 +110,19 @@ main {
     filter: grayscale(0%) opacity(1);
 }
 
+.sidebar-link-active {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    padding: 1rem;
+    color: var(--color-fg);
+    text-decoration: none;
+    border-radius: 1rem;
+    background: var(--color-bg2);
+    filter: grayscale(0%) opacity(1);
+    transition: filter 300ms ease;
+}
+
 .sidebar-logo {
     display: flex;
     flex-direction: column;
@@ -133,6 +146,10 @@ main {
 }
 
 .sidebar-link svg {
+    width: 2rem;
+}
+
+.sidebar-link-active svg {
     width: 2rem;
 }
 

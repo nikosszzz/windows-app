@@ -42,10 +42,9 @@ contextBridge.exposeInMainWorld("api", {
         unmount: () => {
             console.log("[API] Unmounting Settings API");
             const channels = ["userData", "userStoreReq", "themeStatus", "updateTheme"];
-            for (const events in channels) {
-                ipcRenderer.removeAllListeners(channels[events]);
-
-            }
+            channels.forEach(event => {
+                ipcRenderer.removeAllListeners(event);
+            });
         }
     },
 });
