@@ -35,20 +35,20 @@ contextBridge.exposeInMainWorld("api", {
             }
         },
         requestData: (channel, data) => {
-            const validChannels = ["userStoreReq"];
+            const validChannels = ["userStoreReq", "storeRequest"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }
         },
         fetch: (channel, func) => {
-            const validChannels = ["userData"];
+            const validChannels = ["userData", "storeSetting"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
         },
         unmount: () => {
             console.log("[API] Unmounting Settings API");
-            const channels = ["userData", "userStoreReq", "themeStatus", "updateTheme"];
+            const channels = ["storeRequest", "storeSetting", "userData", "userStoreReq", "themeStatus", "updateTheme"];
             channels.forEach(event => {
                 ipcRenderer.removeAllListeners(event);
             });

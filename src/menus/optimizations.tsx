@@ -7,7 +7,7 @@ export default class Optimizations extends React.Component {
                 <main>
                     <div id="introduction" className="page-introduction">
                         <span className="page-title"> Optimizations </span>
-                        <span className="page-subtitle"> Optimize windows for performance and security. </span>
+                        <span className="page-subtitle"> Optimize Windows for performance and security. </span>
                     </div>
                 </main>
             </div>

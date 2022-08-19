@@ -10,7 +10,7 @@ export default class NavBar extends React.Component {
                     <ul className="sidebar-list">
                         <li id="logo" className="sidebar-logo">
                             <span className="logo-text">Windows Utilities</span>
-                            <span id="logo-badge" className="badge">Beta</span>
+                            <span id="logo-badge" className="badge">🛠️ Beta</span>
                         </li>
 
                         <li className="sidebar-item">

@@ -13,7 +13,7 @@ export default class Settings extends React.Component {
             <main>
                 <div id="introduction" className="page-introduction">
                     <span className="page-title"> Settings </span>
-                    <span className="page-subtitle"> Settings page. </span>
+                    <span className="page-subtitle"> The app&apos;s settings page. </span>
                 </div>
 
                 <div id="theme-card" className="card">
@@ -25,8 +25,7 @@ export default class Settings extends React.Component {
 
                         <div className="card-desc">
                             <span className="card-title"> Theme </span>
-                            <span className="card-subtitle"> Choose from a variety (by that i mean only 2) of themes that suit your
-                                taste! </span>
+                            <span className="card-subtitle"> Select your preferred theme palette! </span>
                         </div>
                     </div>
 
@@ -43,7 +42,7 @@ export default class Settings extends React.Component {
                     <div className="card-info">
                         <svg className="card-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                             <path
-                                d="M384 64C490 64 576 149.1 576 256C576 362 490 448 384 448H192C85.96 448 0 362 0 256C0 149.1 85.96 64 192 64H384zM384 352C437 352 480 309 480 256C480 202.1 437 160 384 160C330.1 160 288 202.1 288 256C288 309 330.1 352 384 352z" />
+                                d="M414.8 40.79L286.8 488.8C281.9 505.8 264.2 515.6 247.2 510.8C230.2 505.9 220.4 488.2 225.2 471.2L353.2 23.21C358.1 6.216 375.8-3.624 392.8 1.232C409.8 6.087 419.6 23.8 414.8 40.79H414.8zM518.6 121.4L630.6 233.4C643.1 245.9 643.1 266.1 630.6 278.6L518.6 390.6C506.1 403.1 485.9 403.1 473.4 390.6C460.9 378.1 460.9 357.9 473.4 345.4L562.7 256L473.4 166.6C460.9 154.1 460.9 133.9 473.4 121.4C485.9 108.9 506.1 108.9 518.6 121.4V121.4zM166.6 166.6L77.25 256L166.6 345.4C179.1 357.9 179.1 378.1 166.6 390.6C154.1 403.1 133.9 403.1 121.4 390.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4L121.4 121.4C133.9 108.9 154.1 108.9 166.6 121.4C179.1 133.9 179.1 154.1 166.6 166.6V166.6z" />
                         </svg>
 
                         <div className="card-desc">
@@ -100,7 +99,7 @@ export default class Settings extends React.Component {
 
                 <div className="card">
                     <span id="card-title" className="badge">Beta</span>
-                    <span className="card-subtitle">&nbsp; The app is unstable and might have bugs and/or crashes!</span>
+                    <span className="card-subtitle">&nbsp; The app is unfinished and will have bugs and/or crashes!</span>
                 </div>
             </main>
         );

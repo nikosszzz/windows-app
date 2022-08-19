@@ -11,8 +11,6 @@ require("v8-compile-cache-lib").install({ cacheDir: "cache" });
  * 
  */
 const userStore = new Store({
-    //@ts-ignore
-    configName: "userStore",
     defaults: {
         themeSet: "system",
         devTools: false,
@@ -45,8 +43,8 @@ app.on("ready", (): void => {
             preload: path.join(__dirname, "./appAPI.js")
         }
     });
-    console.log("[App] Window initializing");
-    console.log("[App] [Logger] Version: " + app.getVersion());
+    console.log("[App]      Window initializing");
+    console.log("[App]      Version: " + app.getVersion());
 
     window.loadURL(
         isDev
@@ -63,10 +61,11 @@ app.on("ready", (): void => {
      */
     window.once("ready-to-show", (): void => {
         window.show();
-        window.webContents.openDevTools();
-        if (devToolsStartup === true) console.log(devToolsStartup);
-        if (devToolsStartup === true) window.webContents.openDevTools();
-        console.log("[App] Window loaded");
+        if (devToolsStartup === true) {
+            window.webContents.openDevTools();
+            console.warn("[App]      DevTools enabled. Use the Electron DevTools ONLY if you need to necessarily.");
+        }
+        console.log("[App]      Window loaded");
     });
 
     /**
@@ -122,9 +121,11 @@ app.on("ready", (): void => {
     ipcMain.on("userStoreReq", (event): void => {
         const { width, height } = userStore.get("windowBounds");
         const theme = userStore.get("themeSet");
+        const devTools = userStore.get("devTools");
 
         const data = {
             Theme: theme,
+            DevTools: devTools,
             WindowBounds: {
                 Width: width,
                 Height: height
@@ -133,9 +134,11 @@ app.on("ready", (): void => {
 
         event.reply("userData", data);
     });
-    ipcMain.on("update", (data: any): void => {
-        console.log("a");
-        console.log(data);
+    ipcMain.on("update", (event, data): void => {
         userStore.set(data.setting as string, data.value as boolean);
+        event.reply("done!");
+    });
+    ipcMain.on("storeRequest", (event, key: string): void => {
+        event.reply("storeSetting", userStore.get(key));
     });
 });
