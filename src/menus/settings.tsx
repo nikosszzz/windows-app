@@ -1,4 +1,5 @@
-import React from "react";
+import * as React from "react";
+import global from "../common/globals";
 import { settingsAPI } from "../API/settingsAPI";
 
 export default class Settings extends React.Component {
@@ -100,6 +101,7 @@ export default class Settings extends React.Component {
                 <div className="card">
                     <span id="card-title" className="badge">Beta</span>
                     <span className="card-subtitle">&nbsp; The app is unfinished and will have bugs and/or crashes!</span>
+                    <span className="card-subtitle">&nbsp; Version {global.utils.version}</span>
                 </div>
             </main>
         );

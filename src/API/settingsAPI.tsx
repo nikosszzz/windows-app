@@ -1,5 +1,5 @@
 import { themeAPI } from "./themeAPI";
-import chalk from "chalk";
+import * as chalk from "chalk";
 
 export async function settingsAPI(): Promise<void> {
     chalk.grey(console.log("[API] Settings initialized"));
@@ -28,7 +28,7 @@ export async function settingsAPI(): Promise<void> {
      * Themes API initialization
      * 
      */
-    themeAPI();
+    await themeAPI();
 
 
     /**
