@@ -101,7 +101,10 @@ export default class Settings extends React.Component {
                 <div className="card">
                     <span id="card-title" className="badge">Beta</span>
                     <span className="card-subtitle">&nbsp; The app is unfinished and will have bugs and/or crashes!</span>
-                    <span className="card-subtitle">&nbsp; Version {global.utils.version}</span>
+                </div>
+                <div className="card">
+                    <span id="card-title" className="badge">INFO</span>
+                    <span className="card-subtitle">&nbsp; Version {global.constants.version}, React {global.constants.reactversion}</span>
                 </div>
             </main>
         );

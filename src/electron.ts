@@ -7,6 +7,7 @@ import isDev from "electron-is-dev";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("v8-compile-cache-lib").install({ cacheDir: "./cache" });
+
 /**
  * Initialize userStore
  * 
@@ -18,13 +19,6 @@ const userStore = new Store({
         windowBounds: { width: 800, height: 600 }
     }
 });
-
-/**
- * Constants
- * 
- */
-const version: string = "1.1.0" as string;
-const electronversion: string = process.versions.electron as string;
 
 /**
  * App initalization
@@ -52,7 +46,7 @@ app.on("ready", (): void => {
         }
     });
     console.log("[App]      Window initializing");
-    console.log("[App]      Version: " + global.utils.version);
+    console.log("[App]      Version: " + global.constants.version);
 
     window.loadURL(
         isDev

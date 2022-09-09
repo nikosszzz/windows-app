@@ -1,4 +1,4 @@
-import { versions } from "process";
+import * as React from "react";
 
 declare global {
     interface Window {
@@ -7,7 +7,7 @@ declare global {
     }
 }
 
-global.utils = {
+global.constants = {
     get version(): string {
         try {
             return "1.1.0";
@@ -15,13 +15,13 @@ global.utils = {
             return null;
         }
     },
-    get electronversion(): string {
-        try {
-            return versions.electron;
+    get reactversion(): string {
+        try{
+            return React.version;
         } catch (err) {
             return null;
         }
-    } 
+    }
 };
 
 export default global;
