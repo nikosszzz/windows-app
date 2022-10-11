@@ -1,7 +1,7 @@
 
 import { createRoot } from "react-dom/client";
 import { Route, Routes, HashRouter } from "react-router-dom";
-import React from "react";
+import * as React from "react";
 import NavBar from "./components/Navbar";
 import Main from "./menus/main";
 import Applications from "./menus/applications";

@@ -1,11 +1,13 @@
 import { app, BrowserWindow, ipcMain, nativeTheme } from "electron";
+import global from "./common/globals";
 import url from "url";
 import path from "path";
 import Store from "electron-store";
 import isDev from "electron-is-dev";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-require("v8-compile-cache-lib").install({ cacheDir: "cache" });
+require("v8-compile-cache-lib").install({ cacheDir: "./cache" });
+
 /**
  * Initialize userStore
  * 
@@ -44,7 +46,7 @@ app.on("ready", (): void => {
         }
     });
     console.log("[App]      Window initializing");
-    console.log("[App]      Version: " + app.getVersion());
+    console.log("[App]      Version: " + global.constants.version);
 
     window.loadURL(
         isDev
