@@ -1,10 +1,9 @@
-import chalk from "chalk";
 /**
  * Theme button controls.
  * 
  */
 export async function themeAPI(): Promise<void> {
-    chalk.grey(console.log("[API] Themes initialized"));
+    console.log("[API] Themes initialized");
     const themeValue = document.querySelector("#theme") as HTMLInputElement;
 
     themeValue.onchange = async (): Promise<void> => {

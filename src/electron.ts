@@ -1,5 +1,5 @@
 import { app, BrowserWindow, ipcMain, nativeTheme } from "electron";
-import global from "./common/globals";
+import { constants } from "./common/constants";
 import url from "url";
 import path from "path";
 import Store from "electron-store";
@@ -46,7 +46,7 @@ app.on("ready", (): void => {
         }
     });
     console.log("[App]      Window initializing");
-    console.log("[App]      Version: " + global.constants.version);
+    console.log("[App]      Version: " + constants.version);
 
     window.loadURL(
         isDev

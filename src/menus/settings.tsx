@@ -1,5 +1,5 @@
-import * as React from "react";
-import global from "../common/globals";
+import React from "react";
+import { constants } from "../common/constants";
 import { settingsAPI } from "../API/settingsAPI";
 
 export default class Settings extends React.Component {
@@ -104,7 +104,7 @@ export default class Settings extends React.Component {
                 </div>
                 <div className="card">
                     <span id="card-title" className="badge">INFO</span>
-                    <span className="card-subtitle">&nbsp; Version {global.constants.version}, React {global.constants.reactversion}</span>
+                    <span className="card-subtitle">&nbsp; Version {constants.version}, React {constants.reactversion}</span>
                 </div>
             </main>
         );

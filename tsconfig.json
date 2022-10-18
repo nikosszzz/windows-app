@@ -20,5 +20,5 @@
     "isolatedModules": true,
     "jsx": "react-jsx"
   },
-  "include": ["src/*.ts"]
+  "include": ["src/*.ts", "src/@types/global.d.ts"]
 }
