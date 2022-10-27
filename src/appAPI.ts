@@ -5,21 +5,21 @@ import { contextBridge, ipcRenderer } from "electron";
  * 
  */
 contextBridge.exposeInMainWorld("api", {
-    send: (channel, data) => {
+    send: (channel: string, data: any) => {
         ipcRenderer.send(channel, data);
     },
-    receive: (channel, func) => {
+    receive: (channel: string, func: any) => {
         // Deliberately strip event as it includes `sender` 
         ipcRenderer.on(channel, (event, ...args) => func(...args));
     },
     theme: {
-        update: (channel, data) => {
+        update: (channel: string, data: any) => {
             const validChannels = ["updateTheme"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }
         },
-        status: (channel, func) => {
+        status: (channel: string, func: any) => {
             const validChannels = ["themeStatus"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
@@ -28,19 +28,19 @@ contextBridge.exposeInMainWorld("api", {
     },
     settings: {
 
-        update: (channel, data) => {
+        update: (channel: string, data: any) => {
             const validChannels = ["update"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }
         },
-        requestData: (channel, data) => {
+        requestData: (channel: string, data: any) => {
             const validChannels = ["userStoreReq", "storeRequest"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }
         },
-        fetch: (channel, func) => {
+        fetch: (channel: string, func: any) => {
             const validChannels = ["userData", "storeSetting"];
             if (validChannels.includes(channel)) {
                 ipcRenderer.on(channel, (event, ...args) => func(...args));

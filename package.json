@@ -4,6 +4,8 @@
     "productName": "Windows Utilities",
     "copyright": "Copyright © 2022 ${author}",
     "extends": null,
+    "asar": true,
+    "asarUnpack": "**\\*.{node,dll}",
     "directories": {
       "buildResources": "public"
     },
@@ -46,6 +48,8 @@
   "author": "nikoszz",
   "license": "ISC",
   "devDependencies": {
+    "@swc/helpers": "^0.4.3",
+    "@types/jest": "^27.5.2",
     "@craco/craco": "6.4.3",
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
@@ -54,23 +58,19 @@
     "concurrently": "^7.2.2",
     "craco-swc": "^0.5.1",
     "electron": "^19.0.8",
-    "electron-builder": "^5.5.0",
+    "electron-builder": "^23.6.0",
     "electron-simple-publisher": "^2.0.1",
     "typescript": "^4.7.4",
-    "wait-on": "^6.0.1"
+    "wait-on": "^6.0.1",
+    "react-scripts": "^5.0.1"
   },
   "dependencies": {
-    "@swc/helpers": "^0.4.3",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.41",
     "electron-is-dev": "^2.0.0",
     "electron-store": "^8.0.2",
     "electron-updater": "^5.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.1",
-    "typescript": "^4.7.4",
     "v8-compile-cache-lib": "^3.0.1"
   },
   "browserslist": {

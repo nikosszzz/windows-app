@@ -4,7 +4,7 @@ import { Route, Routes, HashRouter } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
 
 // Pages
-import NavBar from "./components/Navbar";
+const NavBar = lazy(() => import("./components/Navbar"));
 const Main = lazy(() => import("./menus/main"));
 const Applications = lazy(() => import("./menus/applications"));
 const Optimizations = lazy(() => import("./menus/optimizations"));

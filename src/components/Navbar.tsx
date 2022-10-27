@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default class NavBar extends React.Component {
+export default class NavBar extends React.PureComponent {
 
     render(): JSX.Element {
         return (
-            <div className="page">
+            <React.Fragment>
                 <nav className="sidebar">
                     <ul className="sidebar-list">
                         <li id="logo" className="sidebar-logo">
@@ -86,7 +86,7 @@ export default class NavBar extends React.Component {
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </React.Fragment>
         );
     }
 }

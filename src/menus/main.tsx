@@ -1,9 +1,9 @@
 import React from "react";
 
-export default class Main extends React.Component {
+export default class Main extends React.PureComponent {
     render(): JSX.Element {
         return (
-            <div className="page">
+            <React.Fragment>
                 <main>
                     <div id="introduction" className="card">
                         <div className="card-content">
@@ -17,7 +17,7 @@ export default class Main extends React.Component {
                         </div>
                     </div>
                 </main>
-            </div>
+            </React.Fragment>
         );
     }
 }

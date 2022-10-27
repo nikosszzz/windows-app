@@ -25,7 +25,7 @@ const userStore = new Store({
  * 
  */
 app.on("ready", (): void => {
-    let window;
+    let window!: BrowserWindow | null;
     /**
      * Fetch user data
      */
@@ -46,7 +46,7 @@ app.on("ready", (): void => {
         }
     });
     console.log("[App]      Window initializing");
-    console.log("[App]      Version: " + constants.version);
+    console.log("[App]      Version: " + constants.versions.version);
 
     window.loadURL(
         isDev
@@ -62,9 +62,9 @@ app.on("ready", (): void => {
      *
      */
     window.once("ready-to-show", (): void => {
-        window.show();
+        window?.show();
         if (devToolsStartup === true) {
-            window.webContents.openDevTools();
+            window?.webContents.openDevTools();
             console.warn("[App]      DevTools enabled. Use the Electron DevTools ONLY if you need to necessarily.");
         }
         console.log("[App]      Window loaded");
@@ -83,8 +83,10 @@ app.on("ready", (): void => {
      *
      */
     window.on("resize", (): void => {
-        const { width, height } = window.getBounds();
-        userStore.set("windowBounds", { width, height });
+        if (window) {
+            const { width, height } = window.getBounds();
+            userStore.set("windowBounds", { width, height });
+        }
     });
 
     /**
