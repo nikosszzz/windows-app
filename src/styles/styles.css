@@ -328,8 +328,4 @@ div.card {
     src: url('Inter-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-
-    /* Text smoothing stuff. */
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
 }

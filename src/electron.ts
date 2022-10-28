@@ -1,20 +1,17 @@
-import { app, BrowserWindow, ipcMain, nativeTheme } from "electron";
+import { app, ipcMain, BrowserWindow, nativeTheme } from "electron";
 import { constants } from "./common/constants";
-import url from "url";
-import path from "path";
+import url from "node:url";
+import path from "node:path";
 import Store from "electron-store";
-import isDev from "electron-is-dev";
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require("v8-compile-cache-lib").install({ cacheDir: "./cache" });
 
 /**
- * Initialize userStore
+ * @name UserStore
+ * @description Holds User settings information
  * 
  */
 const userStore = new Store({
     defaults: {
-        themeSet: "system",
+        themeSet: "system" as typeof nativeTheme.themeSource,
         devTools: false,
         windowBounds: { width: 800, height: 600 }
     }
@@ -24,15 +21,18 @@ const userStore = new Store({
  * App initalization
  * 
  */
-app.on("ready", (): void => {
-    let window!: BrowserWindow | null;
+app.on("ready", async (): Promise<void> => {
+    let window: BrowserWindow | null;
+
+    // V8 cache
+    (await import("v8-compile-cache-lib")).default.install({ cacheDir: "./cache"});
+
     /**
      * Fetch user data
      */
     const devToolsStartup = userStore.get("devTools");
     const storeTheme = userStore.get("themeSet");
     const { width, height } = userStore.get("windowBounds");
-    //@ts-ignore
     nativeTheme.themeSource = storeTheme;
 
     window = new BrowserWindow({
@@ -42,12 +42,14 @@ app.on("ready", (): void => {
         height: height,
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, "./appAPI.js")
+            preload: path.join(__dirname, "./appAPI.js"),
+            v8CacheOptions: "code",
         }
     });
     console.log("[App]      Window initializing");
     console.log("[App]      Version: " + constants.versions.version);
 
+    const isDev = await import("electron-is-dev");
     window.loadURL(
         isDev
             ? "http://localhost:3000"

@@ -16,7 +16,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "incremental": true
+    "incremental": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": ["src/*.ts", "src/@types/global.d.ts"]
+  "include": ["src/*.ts"]
 }
