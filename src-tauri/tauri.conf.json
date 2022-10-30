@@ -1,13 +1,12 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeBuildCommand": "yarn run build",
     "beforeDevCommand": "yarn run start",
     "devPath": "http://localhost:3000",
     "distDir": "../build"
   },
   "package": {
-    "productName": "Windows Utilities",
+    "productName": "windows-utilities",
     "version": "1.1.0"
   },
   "tauri": {
