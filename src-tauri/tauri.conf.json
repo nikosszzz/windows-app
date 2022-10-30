@@ -6,7 +6,7 @@
     "distDir": "../build"
   },
   "package": {
-    "productName": "windows-utilities",
+    "productName": "Windows Utilities",
     "version": "1.1.0"
   },
   "tauri": {

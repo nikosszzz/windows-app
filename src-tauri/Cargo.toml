@@ -1,5 +1,5 @@
 [package]
-name = "Windows Utilities"
+name = "app"
 version = "1.1.0"
 description = "A program that serves as an utility for Windows!"
 authors = ["nikoszz", "NoriKiru"]
