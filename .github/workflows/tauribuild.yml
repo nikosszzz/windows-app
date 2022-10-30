@@ -22,8 +22,13 @@ jobs:
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
+
+    - name: Install PNPM
+      uses: "pnpm/action-setup@v2.2.4"
+      with:
+        version: "latest"
     - name: install app dependencies and build it
-      run: yarn && yarn build
+      run: pnpm i && pnpm build
     - uses: tauri-apps/tauri-action@v0
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}

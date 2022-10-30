@@ -7,7 +7,7 @@ export default class Settings extends React.PureComponent {
         settingsAPI();
     }
     componentWillUnmount(): void {
-        window.api.settings.unmount();
+        //window.api.settings.unmount();
     }
     render(): JSX.Element {
         return (

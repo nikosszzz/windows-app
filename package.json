@@ -37,8 +37,7 @@
   "scripts": {
     "lint": "eslint . --fix",
     "start": "craco start",
-    "build": "craco build",
-    "build:ts": "tsc"
+    "build": "craco build"
   },
   "keywords": [],
   "author": "nikoszz",
