@@ -36,7 +36,7 @@
   "homepage": "./",
   "scripts": {
     "lint": "eslint . --fix",
-    "start": "pnpm lint && craco start",
+    "start": "craco start",
     "build": "craco build"
   },
   "keywords": [],
@@ -51,7 +51,6 @@
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@types/react-router-dom": "^5.3.3",
-    "@typescript-eslint/eslint-plugin": "^5.41.0",
     "concurrently": "^7.2.2",
     "craco-swc": "^0.5.1",
     "eslint": "^8.26.0",
