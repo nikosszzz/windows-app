@@ -37,12 +37,7 @@
   "scripts": {
     "lint": "eslint . --fix",
     "start": "craco start",
-    "build": "craco build && pnpm run build:ts",
-    "build:ts": "tsc",
-    "electron:serve": "concurrently -k \"pnpm start\" \"wait-on http://localhost:3000\"",
-    "electron:start": "pnpm run build:ts && wait-on tcp:3000 && electron . ",
-    "electron:build": "pnpm build && electron-builder build --publish never -c.extraMetadata.main=build/electron.js",
-    "electron:release": "pnpm build"
+    "build": "craco build"
   },
   "keywords": [],
   "author": "nikoszz",
@@ -50,6 +45,7 @@
   "devDependencies": {
     "@craco/craco": "6.4.3",
     "@swc/helpers": "^0.4.3",
+    "@tauri-apps/cli": "^1.1.1",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
@@ -57,9 +53,7 @@
     "@types/react-router-dom": "^5.3.3",
     "concurrently": "^7.2.2",
     "craco-swc": "^0.5.1",
-    "electron": "^19.0.8",
-    "electron-builder": "^23.6.0",
-    "electron-simple-publisher": "^2.0.1",
+    "eslint": "^8.26.0",
     "react-scripts": "^5.0.1",
     "typescript": "^4.7.4",
     "wait-on": "^6.0.1"
@@ -68,13 +62,9 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.11",
-    "electron-is-dev": "^2.0.0",
-    "electron-store": "^8.0.2",
-    "electron-updater": "^5.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
-    "v8-compile-cache-lib": "^3.0.1"
+    "react-router-dom": "^6.3.0"
   },
   "browserslist": {
     "production": [

@@ -1,5 +1,6 @@
 declare global {
     interface Window {
+        theme: string;
         /**
          * @name api
          * @description IPC api

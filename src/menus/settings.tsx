@@ -7,12 +7,12 @@ export default class Settings extends React.PureComponent {
         settingsAPI();
     }
     componentWillUnmount(): void {
-        window.api.settings.unmount();
+        //window.api.settings.unmount();
     }
     render(): JSX.Element {
         return (
-            <main>
-                <React.Fragment>
+            <React.Fragment>
+                <main>
                     <div id="introduction" className="page-introduction">
                         <span className="page-title"> Settings </span>
                         <span className="page-subtitle"> The app&apos;s settings page. </span>
@@ -107,8 +107,8 @@ export default class Settings extends React.PureComponent {
                         <span id="card-title" className="badge">INFO</span>
                         <span className="card-subtitle">&nbsp; Version {constants.versions.version}, React {constants.versions.reactversion}</span>
                     </div>
-                </React.Fragment>
-            </main>
+                </main>
+            </React.Fragment>
         );
     }
 }

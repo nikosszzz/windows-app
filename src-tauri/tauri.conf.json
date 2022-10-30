@@ -1,0 +1,50 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeDevCommand": "yarn run start",
+    "devPath": "http://localhost:3000",
+    "distDir": "../build",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "Windows Utilities",
+    "version": "1.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true
+    },
+    "bundle": {
+      "active": true,
+      "category": "Utilities",
+      "copyright": "nikoszz, NoriKiru @ 2022",
+      "icon": [
+        "icons/favicon.ico"
+      ],
+      "identifier": "com.win.utils",
+      "longDescription": "A program that serves as an utility for Windows!",
+      "shortDescription": "A Windows utility program.",
+      "targets": "msi",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": "script-src 'self'"
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "title": "Windows Utilities",
+        "width": 800
+      }
+    ]
+  }
+}

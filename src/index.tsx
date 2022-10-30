@@ -13,10 +13,8 @@ const Settings = lazy(() => import("./menus/settings"));
 // Styles
 import "./styles/styles.css";
 
-
 const container = document.querySelector("#root") as Element;
 const root = createRoot(container);
-
 
 root.render(
     <HashRouter>
