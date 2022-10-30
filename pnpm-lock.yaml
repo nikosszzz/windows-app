@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@craco/craco': 6.4.3
   '@swc/helpers': ^0.4.3
+  '@tauri-apps/api': ^1.1.0
   '@tauri-apps/cli': ^1.1.1
   '@types/jest': ^27.5.2
   '@types/node': ^16.11.41
@@ -21,6 +22,7 @@ specifiers:
   wait-on: ^6.0.1
 
 dependencies:
+  '@tauri-apps/api': 1.1.0
   localforage: 1.10.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -2370,6 +2372,11 @@ packages:
       '@jest/create-cache-key-function': 27.5.1
       '@swc/core': 1.2.205
     dev: true
+
+  /@tauri-apps/api/1.1.0:
+    resolution: {integrity: sha512-n13pIqdPd3KtaMmmAcrU7BTfdMtIlGNnfZD0dNX8L4p8dgmuNyikm6JAA+yCpl9gqq6I8x5cV2Y0muqdgD0cWw==}
+    engines: {node: '>= 12.22.0', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
+    dev: false
 
   /@tauri-apps/cli-darwin-arm64/1.1.1:
     resolution: {integrity: sha512-qBG11ig525/qf0f5OQxn0ON3hT8YdpTfpa4Y4kVqBJhdW50R5fadPv6tv5Dpl2TS2X7nWh/zg5mEXYoCK3HZ9w==}

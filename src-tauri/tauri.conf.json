@@ -3,7 +3,8 @@
   "build": {
     "beforeDevCommand": "yarn run start",
     "devPath": "http://localhost:3000",
-    "distDir": "../build"
+    "distDir": "../build",
+    "withGlobalTauri": true
   },
   "package": {
     "productName": "Windows Utilities",
@@ -17,18 +18,13 @@
       "active": true,
       "category": "Utilities",
       "copyright": "nikoszz, NoriKiru @ 2022",
-      "deb": {
-        "depends": []
-      },
-      "externalBin": [],
       "icon": [
         "icons/favicon.ico"
       ],
       "identifier": "com.win.utils",
       "longDescription": "A program that serves as an utility for Windows!",
-      "resources": [],
       "shortDescription": "A Windows utility program.",
-      "targets": "all",
+      "targets": "msi",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",

@@ -28,7 +28,7 @@ export async function settingsAPI(): Promise<void> {
      * Themes API initialization
      * 
      */
-    themeAPI();
+    themeAPI.handler();
 
 
     /**
