@@ -1,32 +1,28 @@
+import localforage from "localforage";
 /**
  * Theme button controls.
  * 
  */
-export async function themeAPI(): Promise<void> {
-    console.log("[API] Themes initialized");
+export function themeAPI(): void {
+    console.log("[API] Themes handler initialized");
     const themeValue = document.querySelector("#theme") as HTMLInputElement;
 
-    themeValue.onchange = async (): Promise<void> => {
+    themeValue.onchange = (): void => {
         if (themeValue.value === "light") {
-            await window.themeControl.setLight();
+            localforage.setItem("theme", themeValue);
             updateTheme();
         }
         if (themeValue.value === "dark") {
-            await window.themeControl.setDark();
+            localforage.setItem("theme", themeValue);
             updateTheme();
         }
         if (themeValue.value === "system") {
-            await window.themeControl.setSystem();
+            localforage.setItem("theme", themeValue);
             updateTheme();
         }
     };
 
-    async function updateTheme(): Promise<void> {
-        await window.api.theme.update("updateTheme", "themeData");
-        window.api.theme.status("themeStatus", (themeData: string) => {
-            themeValue.value = themeData;
-        });
+    function updateTheme(): void {
+        window.theme = themeValue.value;
     }
-
-    updateTheme();
 }

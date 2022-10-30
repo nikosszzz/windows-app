@@ -4,11 +4,11 @@
     "beforeBuildCommand": "pnpm run build",
     "beforeDevCommand": "pnpm run dev",
     "devPath": "http://localhost:3000",
-    "distDir": "../src"
+    "distDir": "../build"
   },
   "package": {
-    "productName": "windows-utilities",
-    "version": "0.1.0"
+    "productName": "Windows Utilities",
+    "version": "1.1.0"
   },
   "tauri": {
     "allowlist": {
@@ -16,30 +16,19 @@
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
+      "category": "Utilities",
+      "copyright": "nikoszz, NoriKiru @ 2022",
       "deb": {
         "depends": []
       },
       "externalBin": [],
       "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
+        "icons/favicon.ico"
       ],
-      "identifier": "com.tauri.dev",
-      "longDescription": "",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
+      "identifier": "com.win.utils",
+      "longDescription": "A program that serves as an utility for Windows!",
       "resources": [],
-      "shortDescription": "",
+      "shortDescription": "A Windows utility program.",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
@@ -48,7 +37,7 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": "script-src 'self'"
     },
     "updater": {
       "active": false
@@ -58,7 +47,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "windows-utilities",
+        "title": "Windows Utilities",
         "width": 800
       }
     ]

@@ -1,6 +1,18 @@
 import React from "react";
+import localforage from "localforage";
 
 export default class Main extends React.PureComponent {
+    async componentDidMount(): Promise<void> {
+        if (await localforage.getItem("theme") == String) {
+            window.theme = (localforage.getItem("theme") as any);
+        } else {
+            if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+                window.theme = "dark";
+            } else {
+                window.theme = "light";
+            }
+        }
+    }
     render(): JSX.Element {
         return (
             <React.Fragment>

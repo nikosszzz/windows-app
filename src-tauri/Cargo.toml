@@ -1,10 +1,10 @@
 [package]
-name = "app"
-version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+name = "Windows Utilities"
+version = "1.1.0"
+description = "A program that serves as an utility for Windows!"
+authors = ["nikoszz", "NoriKiru"]
+license = "null"
+repository = "null"
 default-run = "app"
 edition = "2021"
 rust-version = "1.57"
