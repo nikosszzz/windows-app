@@ -26,6 +26,9 @@
         --color-fg1: #E5E9F0;
         --color-fg2: #D8DEE9;
     }
+    svg {
+        color: var(--color-bg4)
+    }
 }
 
 @media (prefers-color-scheme: light) {
@@ -64,16 +67,17 @@ main {
 *   Sidebar
 */
 
-.sidebar {
+.sb-main, .sb-list {
     position: fixed;
     background: var(--color-bg1);
+    background-color: var(--color-bg1);
     padding: 1rem;
     overflow: hidden;
     height: 100vh;
     width: 12rem;
 }
 
-.sidebar-list {
+.sb-main {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -110,7 +114,7 @@ main {
     filter: grayscale(0%) opacity(1);
 }
 
-.sidebar-link-active {
+.MuiOutlinedInput-root.Mui-active {
     display: flex;
     align-items: center;
     height: 2rem;

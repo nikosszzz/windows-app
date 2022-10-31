@@ -1,4 +1,4 @@
-import { appWindow } from "@tauri-apps/api/window";
+//import { appWindow } from "@tauri-apps/api/window";
 /**
  * Theme button controls.
  * 
@@ -10,21 +10,26 @@ export class themeAPI {
 
         return localStorage.getItem("theme");
     }
-    public static async handler() {
+    // FIXME: Change this when Tauri adds theme setter
+    /*public static async handler() {
         console.log("[API] Themes handler initialized");
-        const themeValue = document.querySelector("#theme") as HTMLInputElement;
+        const themeValue = document.querySelector("#themeOptions") as HTMLInputElement;
+        const rootTheme = document.querySelector("#theme") as Element;
 
         themeValue.onchange = async(): Promise<void> => {
             if (themeValue.value === "light") {
+                rootTheme.className = "light";
                 localStorage.setItem("theme", themeValue.value);
             }
             if (themeValue.value === "dark") {
+                rootTheme.className = "dark";
                 localStorage.setItem("theme", themeValue.value);
             }
             if (themeValue.value === "system") {
+                rootTheme.className = await appWindow.theme() as string;
                 localStorage.setItem("theme", await appWindow.theme() as string);
             }
         };
 
-    }
+    } */
 }

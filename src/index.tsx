@@ -1,6 +1,6 @@
 // React imports
 import { createRoot } from "react-dom/client";
-import { Route, Routes, HashRouter } from "react-router-dom";
+import { Route, Routes, MemoryRouter } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
 
 // Components & Pages
@@ -17,7 +17,7 @@ const container = document.querySelector("#root") as Element;
 const root = createRoot(container);
 
 root.render(
-    <HashRouter>
+    <MemoryRouter>
         <NavBar />
         <Suspense>
             <Routes>
@@ -27,5 +27,5 @@ root.render(
                 <Route path="/settings" element={<Settings />} />
             </Routes>
         </Suspense>
-    </HashRouter>
+    </MemoryRouter>
 );

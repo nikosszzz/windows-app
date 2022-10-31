@@ -1,14 +1,12 @@
-import { themeAPI } from "./themeAPI";
-import localforage from "localforage";
-
+//import { themeAPI } from "./themeAPI";
 export async function settingsAPI(): Promise<void> {
     console.log("[API] Settings initialized");
 
     // devtools toggle
     const devToolsToggle = document.querySelector("#devtools-toggle") as HTMLInputElement;
-    const theme = await localforage.getItem("theme");
-    const windowBounds = await localforage.getItem("windowbounds");
-    const devTools = await localforage.getItem("devtoolsStartup");
+    const theme = localStorage.getItem("theme");
+    const windowBounds = localStorage.getItem("windowbounds");
+    const devTools = localStorage.getItem("devtoolsStartup");
 
     console.log("[API] Fetching userStore Data");
     console.log("------- BEGIN USER DATA LIST -------");
@@ -18,7 +16,7 @@ export async function settingsAPI(): Promise<void> {
     console.log("------- END USER DATA LIST -------");
     console.log("[API] Fetched userStore Data");
 
-    if (devTools === true) {
+    if (devTools === "true") {
         devToolsToggle.checked = true;
     } else {
         devToolsToggle.checked = false;
@@ -28,27 +26,28 @@ export async function settingsAPI(): Promise<void> {
      * Themes API initialization
      * 
      */
-    themeAPI.handler();
+    // Check FIXME in handler
+    //await themeAPI.handler();
 
 
     /**
      * DevTools
      * 
      */
-    devToolsToggle.onchange = async (): Promise<void> => {
+    devToolsToggle.onchange = (): void => {
         if (devToolsToggle.checked) {
             const data = {
                 setting: "devToolsStartup",
-                value: true
+                value: "true"
             };
-            await localforage.setItem(data.setting, data.value);
+            localStorage.setItem(data.setting, data.value);
             console.log("[API] DevTools on Startup enabled");
         } else {
             const data = {
                 setting: "devToolsStartup",
-                value: false
+                value: "false"
             };
-            await localforage.setItem(data.setting, data.value);
+            localStorage.setItem(data.setting, data.value);
             console.log("[API] DevTools on Startup disabled");
         }
     };
