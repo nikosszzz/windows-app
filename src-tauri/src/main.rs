@@ -10,8 +10,6 @@ fn main() {
 }
 
 #[tauri::command]
-fn openDevTools() -> _ {
-   tauri::window::Window::open_devtools;
-
-   Ok(());
+fn openDevTools() {
+   tauri::window::Window::<R>::open_devtools;
 }
