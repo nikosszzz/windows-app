@@ -8,8 +8,3 @@ fn main() {
     .run(tauri::generate_context!())
     .expect("Error while running Application.");
 }
-
-#[tauri::command]
-fn openDevTools() {
-   tauri::window::Window::<dyn tauri::Runtime>::open_devtools;
-}

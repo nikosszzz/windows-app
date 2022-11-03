@@ -2,7 +2,6 @@
 import { createRoot } from "react-dom/client";
 import { Route, Routes, MemoryRouter } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
-import { invoke } from "@tauri-apps/api/tauri";
 
 // Components & Pages
 const NavBar = lazy(() => import("./components/Navbar"));
@@ -33,7 +32,3 @@ root.render(
         </Suspense>
     </MemoryRouter>
 );
-
-if (localStorage.getItem("devToolsStartup") === "true") {
-    invoke("openDevTools");
-}
