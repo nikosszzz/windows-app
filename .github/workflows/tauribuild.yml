@@ -28,7 +28,7 @@ jobs:
       with:
         version: "latest"
     - name: install app dependencies and build it
-      run: pnpm i && pnpm build
+      run: pnpm i --no-frozen-lockfile && pnpm build
     - uses: tauri-apps/tauri-action@v0
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
