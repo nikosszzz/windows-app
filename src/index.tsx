@@ -12,6 +12,9 @@ const Settings = lazy(() => import("./menus/settings"));
 
 // Styles
 import "./styles/styles.css";
+import { themeAPI } from "./API/themeAPI";
+import { invoke } from "@tauri-apps/api";
+themeAPI.init();
 
 const container = document.querySelector("#root") as Element;
 const root = createRoot(container);
@@ -29,3 +32,7 @@ root.render(
         </Suspense>
     </MemoryRouter>
 );
+
+if (localStorage.getItem("devToolsStartup") === "true") {
+    invoke("openDevTools");
+}
