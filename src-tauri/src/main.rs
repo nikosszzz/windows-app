@@ -11,5 +11,5 @@ fn main() {
 
 #[tauri::command]
 fn openDevTools() {
-   tauri::window::Window::<tauri::Runtime>::open_devtools;
+   tauri::window::Window::<dyn tauri::Runtime>::open_devtools;
 }

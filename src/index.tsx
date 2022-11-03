@@ -13,7 +13,7 @@ const Settings = lazy(() => import("./menus/settings"));
 // Styles
 import "./styles/styles.css";
 import { themeAPI } from "./API/themeAPI";
-import { invoke } from "@tauri-apps/api";
+
 themeAPI.init();
 
 const container = document.querySelector("#root") as Element;
@@ -34,5 +34,6 @@ root.render(
 );
 
 if (localStorage.getItem("devToolsStartup") === "true") {
+    const { invoke } = await import("@tauri-apps/api");
     invoke("openDevTools");
 }
