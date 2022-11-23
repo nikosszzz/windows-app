@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"..\\API\\themeAPI.tsx -> @tauri-apps/api/window":{id:1329,files:["static/chunks/329.15218df31fa566d3.js"]}};

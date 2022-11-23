@@ -1,27 +1,34 @@
-//import { appWindow } from "@tauri-apps/api/window";
-
-import { appWindow } from "@tauri-apps/api/window";
-
 /**
- * Theme button controls.
+ * @name Theme button controls.
  * 
  */
 export class themeAPI {
+    /**
+     * @name Themes Initialiser
+     * @description Handles the app init theme loading
+     * 
+     */
     public static async init(): Promise<void> {
-        if (localStorage.getItem("theme") == undefined) {
-            const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            localStorage.setItem("theme", isDefaultDark ? "dark" : "light");
+        if (typeof window !== undefined) {
+            if (localStorage.getItem("theme") == undefined) {
+                const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                localStorage.setItem("theme", isDefaultDark ? "dark" : "light");
 
-            document.documentElement.className = "theme-" + localStorage.getItem("theme");
-        } else {
-            console.log(localStorage.getItem("theme") as string);
-            if (localStorage.getItem("theme") === "system") {
-                document.documentElement.className = "theme-" + await appWindow.theme();
-            } else {
                 document.documentElement.className = "theme-" + localStorage.getItem("theme");
+            } else {
+                if (localStorage.getItem("theme") === "system") {
+                    document.documentElement.className = "theme-" + await (await import("@tauri-apps/api/window")).appWindow.theme();
+                } else {
+                    document.documentElement.className = "theme-" + localStorage.getItem("theme");
+                }
             }
         }
     }
+    /**
+     * @name Themes Handler
+     * @description Starts the Element handling for settings
+     * 
+     */
     public static async handler(): Promise<void> {
         console.log("[API] Themes handler initialized");
         const themeValue = document.querySelector("#themeOptions") as HTMLSelectElement;
@@ -37,7 +44,7 @@ export class themeAPI {
                 localStorage.setItem("theme", themeValue.value);
             }
             if (themeValue.value === "system") {
-                rootTheme.className = "theme-" + await appWindow.theme();
+                rootTheme.className = "theme-" + await (await import("@tauri-apps/api/window")).appWindow.theme();
                 localStorage.setItem("theme", "system");
             }
         };

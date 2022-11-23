@@ -36,30 +36,26 @@
   "homepage": "./",
   "scripts": {
     "lint": "eslint . --fix",
-    "start": "craco start",
-    "build": "craco build"
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build"
   },
   "keywords": [],
   "author": "nikoszz",
   "license": "ISC",
   "devDependencies": {
-    "@craco/craco": "6.4.3",
-    "@swc/helpers": "^0.4.3",
     "@tauri-apps/cli": "^1.1.1",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.41",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
-    "@types/react-router-dom": "^5.3.3",
-    "craco-swc": "^0.5.1",
-    "react-scripts": "^5.0.1",
-    "typescript": "^4.7.4"
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
   },
   "dependencies": {
+    "@next/font": "^13.0.4",
     "@tauri-apps/api": "^1.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "browserslist": {
     "production": [

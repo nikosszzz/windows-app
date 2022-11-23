@@ -1,7 +1,7 @@
 import React from "react";
 
 export class constants {
-    static versions = {
+    public static versions = {
         get version(): string | null {
             try {
                 return "1.1.0";
