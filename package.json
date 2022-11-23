@@ -48,7 +48,8 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "critters": "latest"
   },
   "dependencies": {
     "@next/font": "^13.0.4",

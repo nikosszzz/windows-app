@@ -14,12 +14,12 @@ export class themeAPI {
                 const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 localStorage.setItem("theme", isDefaultDark ? "dark" : "light");
 
-                document.documentElement.className = "theme-" + localStorage.getItem("theme");
+                document.documentElement.className = `theme-${localStorage.getItem("theme")}`;
             } else {
-                if (localStorage.getItem("theme") === "system") {
-                    document.documentElement.className = "theme-" + await (await import("@tauri-apps/api/window")).appWindow.theme();
+                if (localStorage.getItem("theme") !== "system") {
+                    document.documentElement.className = `theme-${localStorage.getItem("theme")}`;
                 } else {
-                    document.documentElement.className = "theme-" + localStorage.getItem("theme");
+                    document.documentElement.className = `theme-${await (await import("@tauri-apps/api/window")).appWindow.theme()}`;
                 }
             }
         }
@@ -44,7 +44,7 @@ export class themeAPI {
                 localStorage.setItem("theme", themeValue.value);
             }
             if (themeValue.value === "system") {
-                rootTheme.className = "theme-" + await (await import("@tauri-apps/api/window")).appWindow.theme();
+                rootTheme.className = `theme-${await (await import("@tauri-apps/api/window")).appWindow.theme()}`;
                 localStorage.setItem("theme", "system");
             }
         };

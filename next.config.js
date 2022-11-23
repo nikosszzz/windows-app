@@ -8,6 +8,10 @@ const nextConfig = {
   distDir: "./build",
   images: {
     unoptimized: true
+  },
+  experimental: {
+    optimisticClientCache: true,
+    optimizeCss: true
   }
 }
 
