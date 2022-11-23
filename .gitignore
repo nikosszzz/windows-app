@@ -12,6 +12,7 @@
 /dist
 /build
 /cache
+/.next
 
 # misc
 .DS_Store

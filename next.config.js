@@ -5,6 +5,7 @@ const nextConfig = {
   optimizeFonts: true,
   cleanDistDir: true,
   compress: true,
+  distDir: "./build"
 }
 
 module.exports = nextConfig
