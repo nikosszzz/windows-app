@@ -7,7 +7,7 @@ import "../styles/styles.css";
 import { themeAPI } from "../API/themeAPI";
 import NavBar from "../components/Navbar";
 
-const inter = Inter();
+const inter = Inter({ style: "normal" });
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
     themeAPI.init();

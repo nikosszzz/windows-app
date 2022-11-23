@@ -1,5 +1,5 @@
 import React from "react";
-import { constants } from "../../common/constants";
+import { versions } from "../../common/versions";
 import { settingsAPI } from "../../API/settingsAPI";
 
 export default function Settings(): JSX.Element {
@@ -84,7 +84,7 @@ export default function Settings(): JSX.Element {
             </div>
             <div className="card">
                 <span id="card-title" className="badge">INFO</span>
-                <span className="card-subtitle">&nbsp; Version {constants.versions.version}, React {constants.versions.reactversion}</span>
+                <span className="card-subtitle">&nbsp; Version {versions.appVersion}, React {versions.reactversion}, NextJS {versions.nextversion}</span>
             </div>
         </main>
     );

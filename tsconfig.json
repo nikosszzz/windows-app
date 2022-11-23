@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ESNext",
     "lib": [
       "DOM",
       "DOM.Iterable",
@@ -19,8 +19,7 @@
     "jsx": "preserve",
     "incremental": true,
     "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
+      "./node_modules/@types"
     ],
     "forceConsistentCasingInFileNames": true,
     "noEmit": true

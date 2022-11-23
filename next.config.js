@@ -5,7 +5,10 @@ const nextConfig = {
   optimizeFonts: true,
   cleanDistDir: true,
   compress: true,
-  distDir: "./build"
+  distDir: "./build",
+  images: {
+    unoptimized: true
+  }
 }
 
 module.exports = nextConfig

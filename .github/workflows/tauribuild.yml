@@ -13,12 +13,12 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     steps:
-    - uses: actions/checkout@v2
-    - name: setup node
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - name: Setup Node.JS LTS
+      uses: actions/setup-node@v3
       with:
-        node-version: 16
-    - name: install Rust stable
+        node-version: lts/*
+    - name: Install Rust Stable
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
@@ -27,7 +27,7 @@ jobs:
       uses: "pnpm/action-setup@v2.2.4"
       with:
         version: "latest"
-    - name: install app dependencies and build it
+    - name: Install Dependencies & Build
       run: pnpm i --no-frozen-lockfile && pnpm build
     - uses: tauri-apps/tauri-action@v0
       env:
