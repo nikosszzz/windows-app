@@ -6,7 +6,7 @@
       "DOM.Iterable",
       "ESNext"
     ],
-    "outDir": "./build",
+    "outDir": "./out",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
