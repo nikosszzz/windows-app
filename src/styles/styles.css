@@ -210,6 +210,7 @@ div.card {
 .card .card-logo {
     width: 1.8rem;
     fill: var(--color-fg);
+    display: flex;
 }
 
 .badge {
