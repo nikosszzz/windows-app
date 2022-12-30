@@ -10,7 +10,7 @@ export class themeAPI {
      */
     public static async init(): Promise<void> {
         if (typeof window !== "undefined") {
-            if (localStorage.getItem("theme") === undefined) {
+            if (localStorage.getItem("theme") === undefined || localStorage.getItem("theme") === null) {
                 const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 localStorage.setItem("theme", isDefaultDark ? "dark" : "light");
 

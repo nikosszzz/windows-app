@@ -9,7 +9,6 @@ import { themeAPI } from "../API/themeAPI";
 const inter = Inter({ style: "normal", subsets: ["latin"], display: "swap" });
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
-    //App theme on initialisation
     themeAPI.init();
     return (
         <>

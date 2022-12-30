@@ -1,38 +1,8 @@
 {
-  "build": {
-    "appId": "com.nikoszz.winutils",
-    "productName": "Windows Utilities",
-    "copyright": "Copyright © 2022 ${author}",
-    "extends": null,
-    "asar": true,
-    "asarUnpack": "**\\*.{node,dll}",
-    "directories": {
-      "buildResources": "public"
-    },
-    "win": {
-      "target": "nsis",
-      "icon": "public/favicon.ico",
-      "requestedExecutionLevel": "requireAdministrator"
-    },
-    "nsis": {
-      "uninstallDisplayName": "Windows Utilities Uninstaller",
-      "artifactName": "${productName} Setup v${version}.${ext}",
-      "allowToChangeInstallationDirectory": true,
-      "oneClick": false,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": false,
-      "installerIcon": "public/favicon.ico",
-      "uninstallerIcon": "public/favicon.ico"
-    }
-  },
-  "publishConfig": {
-    "detectUpdateChannel": true
-  },
   "name": "windows-utilities",
   "version": "1.0.1",
-  "description": "Simple windows utility tool.",
+  "description": "Simple Windows 10-11 Utility tool.",
   "repository": "github:nikosszzz/windows-app",
-  "main": "./build/electron.js",
   "homepage": "./",
   "scripts": {
     "lint": "eslint . --fix",
@@ -40,11 +10,10 @@
     "start": "next start",
     "build": "next build && next export"
   },
-  "keywords": [],
   "author": "nikoszz",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "devDependencies": {
-    "@tauri-apps/cli": "^1.1.1",
+    "@tauri-apps/cli": "^1.2.2",
     "@types/file-saver": "^2.0.5",
     "@types/node": "latest",
     "@types/react": "latest",
@@ -54,7 +23,7 @@
   },
   "dependencies": {
     "@next/font": "^13.0.4",
-    "@tauri-apps/api": "^1.1.0",
+    "@tauri-apps/api": "^1.2.0",
     "file-saver": "^2.0.5",
     "next": "latest",
     "react": "latest",
