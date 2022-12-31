@@ -16,28 +16,31 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup Node.JS LTS
-      uses: actions/setup-node@v3
-      with:
-        node-version: lts/*
-    - name: Install Rust Stable
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
+      - uses: actions/checkout@v3
+      - name: Setup Node.JS LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+      - name: Install Rust Stable
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
 
-    - name: Install PNPM
-      uses: "pnpm/action-setup@v2.2.4"
-      with:
-        version: "latest"
-    - name: Install Dependencies & Build
-      run: pnpm i --no-frozen-lockfile && pnpm build
-    - uses: tauri-apps/tauri-action@v0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-      with:
-        tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
-        releaseName: "App v__VERSION__"
-        releaseBody: "See the assets to download this version and install."
-        releaseDraft: true
-        prerelease: false
+      - name: Install PNPM
+        uses: "pnpm/action-setup@v2.2.4"
+        with:
+          version: "latest"
+
+      - name: Install Dependencies
+        run: pnpm i --no-frozen-lockfile
+
+      - name: Build App
+        uses: "tauri-apps/tauri-action@v0"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        with:
+          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+          releaseName: "App v__VERSION__"
+          releaseBody: "See the assets to download this version and install."
+          releaseDraft: true
+          prerelease: false

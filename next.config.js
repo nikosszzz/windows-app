@@ -10,8 +10,7 @@ const nextConfig = {
     unoptimized: true
   },
   experimental: {
-    optimisticClientCache: true,
-    optimizeCss: true
+    optimisticClientCache: true
   }
 }
 
